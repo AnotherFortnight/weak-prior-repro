@@ -293,7 +293,10 @@
   - Per-image PNGs go to GitHub release `v1.0` as `reconstructions_png.zip` instead of into git: 9,488 files, 959 MiB, stored without compression, made with Python `zipfile` because `zip` is not installed. The README links to the release.
   - Pushed with gh as the git credential helper for this push only; the global git config is unchanged.
 - **Not published:** `data/`, the chest X-ray images (`images_medical/`, `image_grid.png`), the regenerable synthetic images.
-- **Verification:** `zipfile.testzip` passed with 9,488 entries; push and release checks below.
+- **Verification:**
+  - `zipfile.testzip` passed with 9,488 entries.
+  - `git ls-remote origin main` equals the local HEAD 57a1be8, and the repo reports PUBLIC.
+  - Release `v1.0` is published. Its asset is 1,005,090,000 bytes, with the same SHA-256 as the local zip (a18ed269…).
 - **Risks:**
   - CelebA / LSUN terms: the user's choice.
   - No LICENSE file, so default copyright applies.
