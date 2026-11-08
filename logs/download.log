@@ -1,0 +1,10 @@
+lsun done
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:01,  2.31it/s]Fetching 4 files:  75%|███████▌  | 3/4 [00:00<00:00,  6.38it/s]Fetching 4 files: 100%|██████████| 4/4 [00:07<00:00,  1.78s/it]
+/home/wenxuanli/.cache/huggingface/hub/models--google--ddpm-celebahq-256/snapshots/cd5c944777ea2668051904ead6cc120739b86c4d
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:01,  2.34it/s]Fetching 4 files: 100%|██████████| 4/4 [00:06<00:00,  1.74s/it]Fetching 4 files: 100%|██████████| 4/4 [00:06<00:00,  1.64s/it]
+/home/wenxuanli/.cache/huggingface/hub/models--google--ddpm-bedroom-256/snapshots/d6ccd889ac8a4c072ae35e63fed664718cdaa060
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:01,  2.34it/s]Fetching 4 files: 100%|██████████| 4/4 [00:08<00:00,  2.21s/it]Fetching 4 files: 100%|██████████| 4/4 [00:08<00:00,  2.07s/it]
+/home/wenxuanli/.cache/huggingface/hub/models--google--ddpm-church-256/snapshots/5a1118b5a35e744d59a4215a8c72a4d7619b9e04
+/home/wenxuanli/projects/Deep Learning Course/data/celebahq_hf/data/train-00000-of-00006.parquet
+/home/wenxuanli/projects/Deep Learning Course/data/celebahq_hf/README.md
+ALL DONE

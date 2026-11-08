@@ -1,0 +1,16 @@
+{
+ "method": "ino",
+ "task": "sr4",
+ "target": "church",
+ "prior": "church",
+ "n": 100,
+ "start": 0,
+ "sigma": 0.01,
+ "opt": "adamsphere",
+ "iters": 1000,
+ "zeta": 1.0,
+ "tag": "",
+ "batch": 25,
+ "lr": 0.01,
+ "holdout": 0.05
+}

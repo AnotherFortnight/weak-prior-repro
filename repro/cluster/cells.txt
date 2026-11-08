@@ -1,0 +1,90 @@
+# one run.py cell per line (mirrors repro/queue.sh); the Slurm job appends --n and --batch
+dps --task inpaint --target celeba
+ino --task inpaint --target celeba --prior celeba
+ino --task inpaint --target celeba --prior bedroom
+ino --task inpaint --target celeba --prior church
+dps --task inpaint --target bedroom
+ino --task inpaint --target bedroom --prior celeba
+ino --task inpaint --target bedroom --prior bedroom
+ino --task inpaint --target bedroom --prior church
+dps --task inpaint --target church
+ino --task inpaint --target church --prior celeba
+ino --task inpaint --target church --prior bedroom
+ino --task inpaint --target church --prior church
+dps --task sr4 --target celeba
+ino --task sr4 --target celeba --prior celeba
+ino --task sr4 --target celeba --prior bedroom
+ino --task sr4 --target celeba --prior church
+dps --task sr4 --target bedroom
+ino --task sr4 --target bedroom --prior celeba
+ino --task sr4 --target bedroom --prior bedroom
+ino --task sr4 --target bedroom --prior church
+dps --task sr4 --target church
+ino --task sr4 --target church --prior celeba
+ino --task sr4 --target church --prior bedroom
+ino --task sr4 --target church --prior church
+dps --task gauss --target celeba
+ino --task gauss --target celeba --prior celeba
+ino --task gauss --target celeba --prior bedroom
+ino --task gauss --target celeba --prior church
+dps --task gauss --target bedroom
+ino --task gauss --target bedroom --prior celeba
+ino --task gauss --target bedroom --prior bedroom
+ino --task gauss --target bedroom --prior church
+dps --task gauss --target church
+ino --task gauss --target church --prior celeba
+ino --task gauss --target church --prior bedroom
+ino --task gauss --target church --prior church
+dps --task box0.3 --target church
+ino --task box0.3 --target church
+ino --task box0.3 --target church --prior celeba
+dps --task box0.4 --target church
+ino --task box0.4 --target church
+ino --task box0.4 --target church --prior celeba
+dps --task box0.5 --target church
+ino --task box0.5 --target church
+ino --task box0.5 --target church --prior celeba
+dps --task box0.6 --target church
+ino --task box0.6 --target church
+ino --task box0.6 --target church --prior celeba
+dps --task sr16 --target church
+ino --task sr16 --target church
+ino --task sr16 --target church --prior celeba
+dps --task inpaint --target celeba --sigma 0.05
+ino --task inpaint --target celeba --sigma 0.05
+ino --task inpaint --target celeba --prior church --sigma 0.05
+dps --task inpaint --target celeba --sigma 0.2
+ino --task inpaint --target celeba --sigma 0.2
+ino --task inpaint --target celeba --prior church --sigma 0.2
+dps --task inpaint --target celeba --sigma 0.5
+ino --task inpaint --target celeba --sigma 0.5
+ino --task inpaint --target celeba --prior church --sigma 0.5
+dps --task inpaint --target celeba --sigma 1.0
+ino --task inpaint --target celeba --sigma 1.0
+ino --task inpaint --target celeba --prior church --sigma 1.0
+ino --task inpaint --target church --opt adam
+ino --task inpaint --target bedroom --opt adam
+ino --task gauss --target church --opt adam
+ino --task gauss --target bedroom --opt adam
+dmplug --task inpaint --target celeba
+dmplug --task inpaint --target bedroom
+dmplug --task inpaint --target church
+dmplug --task sr4 --target celeba
+dmplug --task sr4 --target bedroom
+dmplug --task sr4 --target church
+dmplug --task gauss --target celeba
+dmplug --task gauss --target bedroom
+dmplug --task gauss --target church
+dps --task inpaint --target celeba178 --prior celeba
+ino --task inpaint --target celeba178 --prior celeba
+ino --task inpaint --target celeba178 --prior church
+dps --task sr4 --target celeba178 --prior celeba
+ino --task sr4 --target celeba178 --prior celeba
+dps --task gauss --target celeba178 --prior celeba
+ino --task gauss --target celeba178 --prior celeba
+ino --task nonlinear --target celeba --prior celeba
+ino --task nonlinear --target bedroom --prior bedroom
+ino --task nonlinear --target church --prior church
+dmplug --task nonlinear --target celeba
+dmplug --task nonlinear --target bedroom
+dmplug --task nonlinear --target church

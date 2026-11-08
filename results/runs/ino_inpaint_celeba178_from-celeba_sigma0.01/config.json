@@ -1,0 +1,16 @@
+{
+ "method": "ino",
+ "task": "inpaint",
+ "target": "celeba178",
+ "prior": "celeba",
+ "n": 100,
+ "start": 0,
+ "sigma": 0.01,
+ "opt": "adamsphere",
+ "iters": 1000,
+ "zeta": 1.0,
+ "tag": "",
+ "batch": 25,
+ "lr": 0.02,
+ "holdout": 0.1
+}

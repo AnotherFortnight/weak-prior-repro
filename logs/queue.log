@@ -1,0 +1,18 @@
+dps_inpaint_celeba_from-celeba_sigma0.01 img 1: PSNR 29.39 SSIM 0.859 LPIPS(alex/vgg) 0.069/0.177 iter 999 | 154s
+ino_inpaint_celeba_from-celeba_sigma0.01 img 0: PSNR 32.60 SSIM 0.881 LPIPS(alex/vgg) 0.081/0.165 iter 992 | 412s
+ino_inpaint_celeba_from-celeba_sigma0.01 img 1: PSNR 28.30 SSIM 0.840 LPIPS(alex/vgg) 0.151/0.240 iter 648 | 401s
+ino_inpaint_celeba_from-bedroom_sigma0.01 img 0: PSNR 31.49 SSIM 0.870 LPIPS(alex/vgg) 0.112/0.225 iter 729 | 409s
+ino_inpaint_celeba_from-bedroom_sigma0.01 img 1: PSNR 28.05 SSIM 0.832 LPIPS(alex/vgg) 0.163/0.279 iter 549 | 391s
+ino_inpaint_celeba_from-church_sigma0.01 img 0: PSNR 31.49 SSIM 0.862 LPIPS(alex/vgg) 0.111/0.231 iter 663 | 402s
+ino_inpaint_celeba_from-church_sigma0.01 img 1: PSNR 27.86 SSIM 0.829 LPIPS(alex/vgg) 0.152/0.278 iter 542 | 386s
+dps_inpaint_bedroom_from-bedroom_sigma0.01 img 0: PSNR 23.80 SSIM 0.750 LPIPS(alex/vgg) 0.135/0.229 iter 999 | 136s
+dps_inpaint_bedroom_from-bedroom_sigma0.01 img 1: PSNR 26.02 SSIM 0.823 LPIPS(alex/vgg) 0.093/0.170 iter 999 | 123s
+ino_inpaint_bedroom_from-celeba_sigma0.01 img 0: PSNR 22.69 SSIM 0.690 LPIPS(alex/vgg) 0.242/0.351 iter 406 | 406s
+ino_inpaint_bedroom_from-celeba_sigma0.01 img 1: PSNR 24.68 SSIM 0.752 LPIPS(alex/vgg) 0.193/0.324 iter 550 | 387s
+ino_inpaint_bedroom_from-bedroom_sigma0.01 img 0: PSNR 23.56 SSIM 0.731 LPIPS(alex/vgg) 0.224/0.295 iter 274 | 400s
+ino_inpaint_bedroom_from-bedroom_sigma0.01 img 1: PSNR 25.87 SSIM 0.806 LPIPS(alex/vgg) 0.149/0.220 iter 340 | 390s
+ino_inpaint_bedroom_from-church_sigma0.01 img 0: PSNR 23.24 SSIM 0.711 LPIPS(alex/vgg) 0.232/0.307 iter 255 | 402s
+ino_inpaint_bedroom_from-church_sigma0.01 img 1: PSNR 25.62 SSIM 0.796 LPIPS(alex/vgg) 0.157/0.245 iter 359 | 390s
+dps_inpaint_church_from-church_sigma0.01 img 0: PSNR 27.36 SSIM 0.852 LPIPS(alex/vgg) 0.074/0.147 iter 999 | 136s
+dps_inpaint_church_from-church_sigma0.01 img 1: PSNR 22.44 SSIM 0.709 LPIPS(alex/vgg) 0.214/0.239 iter 999 | 122s
+STOP file found, exiting
