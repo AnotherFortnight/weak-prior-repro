@@ -1,43 +1,5 @@
 # WORKLOG
 
-## 2026-11-06 — Synthetic 1/f^β target images
-- **What changed:**
-  - Added `gen_synthetic_targets.py`. It generates 9 β × 20 Gaussian random-field images (3×256×256) as .npy and .png.
-  - The script also verifies the power-spectrum slopes, computes the radial autocorrelation (lags 0–32), and compares it with the paper's Table 2.
-  - The script, figures, CSVs and README are written to `synthetic_targets/`.
-- **Why:** to test whether the weak diffusion prior fails as the target's local correlation decreases. This step covers target generation only; no diffusion model is run.
-- **Files touched:** `gen_synthetic_targets.py` (new), `synthetic_targets/**` (new, ~170 MB), `WORKLOG.md` (new). `main.py` is untouched.
-- **Verification:** `python3 gen_synthetic_targets.py` prints "self-checks passed".
-  - The asserts check that |slope + β| < 0.25, that lag-1 is ≈0 at β=0 and > 0.99 at β=4, and that lag-1 decreases monotonically with β.
-  - Measured: fitted slopes are within 0.02 of -β, and at most 0.27% of pixels are clipped.
-- **Result:** the paper's prior autocorrelation lies between β=2.5 (lowest RMSE, 0.058) and β=3.0 (highest Pearson, 0.997).
-- **Risks/TODO:**
-  - Autocorrelation is computed on the clipped images; clipping is ≤0.27% of pixels.
-  - Seeds are deterministic but depend on the β index, so changing the order of the β list changes the images.
-  - Possible next step: add β=2.75 to bracket the paper's curve more tightly.
-
-## 2026-11-06 — Medical (chest X-ray) targets
-- **What changed:**
-  - With the user's approval, downloaded 20 NLM Montgomery CXRs, their lung masks and the readme to `data/montgomery/` (~90 MB).
-  - `gen_synthetic_targets.py` now:
-    - crops the lung-mask bounding box, block-mean downsamples to 256 and maps to [-1, 1] in 3 identical channels;
-    - adds a zero-padded, overlap-corrected autocorrelation;
-    - saves grayscale synthetic twins in `images_gray/`;
-    - writes `medical_distance.csv` and `autocorr_gray_padded.csv`;
-    - adds the CXR curve to `autocorr_vs_paper.png` and a CXR row to `image_grid.png`.
-  - Added a medical section to the README.
-- **Why:** to place real medical targets on the β axis.
-- **Files touched:** `gen_synthetic_targets.py`, `synthetic_targets/README.md`, `synthetic_targets/{images_gray,images_medical}/` (new), new CSVs, both figures, `data/montgomery/` (new).
-- **Verification:** `python3 gen_synthetic_targets.py` prints "self-checks passed".
-  - Padded grayscale curves match the circular RGB curves within 0.015.
-  - The grid PNG has ~1.18M distinct colours, so the blotchy preview was a viewer artifact.
-- **Result:** CXR lag-1 = 0.992, lag-32 = 0.593. Equivalent β ≈ 3.5 (RMSE 0.007), which is smoother than the paper's priors (β ≈ 2.5–3).
-- **Risks/TODO:**
-  - Dataset terms forbid sharing outside the research group; do not publish `data/` or `images_medical/`.
-  - The equivalent β depends on the downsampling factor (~12×).
-  - There is no self-check assert for the padded autocorrelation yet.
-  - `synthetic_targets/` is now ~340 MB.
-
 ## 2026-11-06 — Paper reproduction: environment, data, core code, Table 2
 - **Scope:** reproduce arXiv 2601.22443v2 ("Weak Diffusion Priors Can Still Achieve Strong Inverse-Problem Performance", ICML 2026) from the paper and its appendix only. The authors' GitHub repo and project page are **not** consulted. Baseline details come from the cited papers (DPS arXiv 2209.14687, DMPlug arXiv 2405.16749).
 - **What changed:**
@@ -253,11 +215,10 @@
 - **Why:** the user wants to share code and results with the other group members, via GitHub.
 - **What changed:**
   - `git init -b main` in the project root. Nothing is committed: commit and push wait for the user's go.
-  - `.gitignore` (new). Excludes `data/`, the per-image reconstruction PNGs in `results/runs/*/` (960 MB), `.idea/`, `__pycache__/`, the PyCharm template `main.py`, and the regenerable synthetic images.
-    - Also excludes the chest X-rays: `synthetic_targets/images_medical/`, plus `synthetic_targets/image_grid.png`, whose last row shows 9 of them.
+  - `.gitignore` (new). Excludes `data/`, the per-image reconstruction PNGs in `results/runs/*/` (960 MB), `.idea/`, `__pycache__/` and the PyCharm template `main.py`.
   - `README.md` (new, root): what is where, env setup (`repro/cluster/requirements.txt` plus pyarrow, lmdb, matplotlib for the local-only scripts), and what is not in the repository.
   - `repro/README.md`: the local python path `P=...` replaced by `python -s`.
-- **Share set:** 16,037 files, 137 MB, largest file about 1 MB. A grep for data/, CXR and per-image PNG paths finds none of them. No tokens or passwords in the shared text files.
+- **Share set:** 16,037 files, 137 MB, largest file about 1 MB. A grep for data/ and per-image PNG paths finds none of them. No tokens or passwords in the shared text files.
 - **Verification:** copied exactly the share set to a scratch directory and ran `python -s repro/summarize.py` there. The resulting `results/summary.md` is byte-identical to ours.
 - **Risks/TODOs:**
   - This machine has no GitHub login: no `gh`, no GitHub SSH key. Installing the gh release binary was blocked by the auto-mode permission check. The user can run `sudo apt install gh` (Ubuntu 24.04: gh 2.45.0) and then `gh auth login`.
@@ -292,7 +253,7 @@
   - `.gitignore` now also excludes `logs/paper_figs/` (page renders of the paper) and the PNGs of `results/runs_a1000/`.
   - Per-image PNGs go to GitHub release `v1.0` as `reconstructions_png.zip` instead of into git: 9,488 files, 959 MiB, stored without compression, made with Python `zipfile` because `zip` is not installed. The README links to the release.
   - Pushed with gh as the git credential helper for this push only; the global git config is unchanged.
-- **Not published:** `data/`, the chest X-ray images (`images_medical/`, `image_grid.png`), the regenerable synthetic images.
+- **Not published:** `data/`.
 - **Verification:**
   - `zipfile.testzip` passed with 9,488 entries.
   - `git ls-remote origin main` equals the local HEAD 57a1be8, and the repo reports PUBLIC.
@@ -300,7 +261,6 @@
 - **Risks:**
   - CelebA / LSUN terms: the user's choice.
   - No LICENSE file, so default copyright applies.
-  - The CXR statistics (curves and CSVs, not images) are public.
 
 ## 2026-11-17 — README: per-experiment settings and comparison with the paper
 - **Why:** the user asked for clearer experimental steps and settings, compared with the original paper.
@@ -327,3 +287,18 @@
   - Derived differences were recomputed with a script.
   - All relative links exist and are not git-ignored.
 - **Pushed** on the user's go ("推送").
+
+## 2026-11-17 — Repository limited to the reproduction
+- **Why:** the user asked that only reproduction-related material be in the shared repository.
+- **What:**
+  - Untracked `synthetic_targets/` and `gen_synthetic_targets.py` (a separate study) and git-ignored them. The files are kept locally, and that study's WORKLOG entries moved to `synthetic_targets/WORKLOG.md`.
+  - Removed their mentions from `README.md`, `.gitignore` and this log.
+- **Risks:** the files are still in the public git history (commits 57a1be8 to 2e548b5); removing them there needs a history rewrite and a force push.
+- **Also (same day, user request "把运行的时间也加进去"):** README section "What was run and how long it took".
+  - Settings, images and GPU-hours per task and experiment (89 settings, 8,900 images, 56.8 GPU-h from the per-image timings in the JSONs; ≈ 58 GPU-h in the cluster accounting).
+  - GPU-hours per method, and wall-clock per batch.
+  - Seconds per image next to the paper's Table 17. The old compute bullet in "Other numbers" was removed.
+- **Verification:**
+  - Totals recomputed from the 8,900 `NNN.json` files: method totals sum to 56.8 and settings to 89.
+  - The logs show image 100 (`img 99`) in all 89 settings.
+- **Pushed** on the user's go ("推送"); git history not rewritten.

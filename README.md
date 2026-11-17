@@ -74,6 +74,35 @@ The baselines use the same images, measurements and z₀:
 
 Ours at iterations 1, 5, 10, 100 and 1000, then the HoldoutTopK output, the ground truth and the measurement. With a mismatched prior (rows 2 and 4) the first iterates look like the prior's own domain, a bedroom or a face; by iteration 100–1000 they match the target.
 
+## What was run and how long it took
+
+Every setting below ran on all 100 test images (8,900 reconstructions in total), on NAISS Arrhenius GH200 GPUs. GPU-hours are the sum of the per-image run times stored in `results/runs/*/NNN.json`.
+
+| experiment | settings | images | GPU-hours |
+|---|---|---|---|
+| random inpainting (E4, E5): DPS 3, ours 9 (3 priors × 3 test sets), DMPlug 3 | 15 | 1,500 | 10.2 |
+| 4× super-resolution (E4, E5): same split | 15 | 1,500 | 11.0 |
+| Gaussian deblurring (E4, E5): same split | 15 | 1,500 | 11.8 |
+| nonlinear deblurring (E5): ours 3, DMPlug 3 | 6 | 600 | 8.5 |
+| ablation with plain Adam (E6) | 4 | 400 | 2.1 |
+| box inpainting and 16× SR (E7) | 15 | 1,500 | 5.9 |
+| noise levels (E8) | 12 | 1,200 | 4.7 |
+| original CelebA faces (E9) | 7 | 700 | 2.6 |
+| **total** | **89** | **8,900** | **56.8** |
+
+- The cluster accounting, which also counts start-up and compilation, is about 58 GPU-hours.
+- By method: ours 28.6 GPU-hours (56 settings), DMPlug 24.3 (12), DPS 3.9 (21).
+- E1–E3 need no reconstructions; each finishes in a few minutes.
+- Wall-clock: the settings ran in parallel as Slurm job arrays. The slowest single setting took 2 h 28 min in the main batch and 2 h 48 min in the nonlinear batch, so each batch finished in about 3 hours, not counting queue time.
+
+Time per image:
+
+| method | ours (GH200, fp16) | paper (L40S, Table 17, CelebA inpainting) |
+|---|---|---|
+| ours / INO, 1000 iterations | 18–21 s (9–25 images per GPU pass) | 171 s |
+| DPS, 1000 steps | 6–7 s | 40 s |
+| DMPlug, up to 1000 iterations | 61–82 s (one image at a time) | not reported |
+
 ## E1. Identifiability (Table 1)
 
 **Paper.** For each of 100 target images: remove 70 % of the pixels and add noise. Apply the same mask to every image "in the dataset" and compute the MSE on the observed pixels. Gap = second-smallest MSE − smallest MSE. The pool size is not stated.
@@ -291,7 +320,6 @@ The paper writes "CelebA-HQ" but its tables say "CelebA", and the DMPlug paper, 
 
 - HoldoutTopK hardly depends on K: K = 1 to 50 changes PSNR by ≤ 0.17 dB in all 37 settings of ours.
 - On random masks, SR and deblurring, the best iterate ("oracle") is only 0.0–0.3 dB above HoldoutTopK; on boxes it is 0.2–0.8 dB above.
-- Compute: about 58 GPU-hours on GH200 (46.4 for the 76 paper settings, 8.6 for nonlinear deblurring, 2.65 for E9). Per image: ours 19 s (9–25 images per GPU pass), DPS 8 s, DMPlug 75 s.
 - Hardware check: 18 images run both on a laptop (RTX A1000, one image at a time) and on the GH200 differ by ≤ 0.04 dB (ours) and ≤ 0.33 dB (DPS).
 
 ## Not reproduced
@@ -313,7 +341,6 @@ Every main-text experiment was run. These appendix-only items were left out by c
 | `results/runs/<setting>/` | per image: metrics (`NNN.json`) and optimisation logs (`NNN_log.npz`); `config.json` |
 | `logs/arrhenius/` | the cluster log of every setting |
 | `WORKLOG.md` | what was done and checked, in order |
-| `synthetic_targets/`, `gen_synthetic_targets.py` | extension: synthetic 1/f^β targets |
 
 ## Setup
 
@@ -331,5 +358,3 @@ The pinned torch (2.12 + CUDA 13.0) needs a recent NVIDIA driver; on other machi
 
 - `data/` (test images, BKSE code and weights, model caches): rebuild it with the setup above; BKSE is described in `repro/README.md`.
 - Per-image reconstruction and measurement PNGs (`results/runs/*/*.png`, 960 MB): `reconstructions_png.zip` on the [Releases page](https://github.com/AnotherFortnight/weak-prior-repro/releases). Unzip it in the repository root; `repro/make_figures.py` needs these files.
-- Chest X-ray images (`synthetic_targets/images_medical/`, `synthetic_targets/image_grid.png`): restricted to the research group.
-- `synthetic_targets/images*/`: regenerate with `python gen_synthetic_targets.py` (about 15 s).
