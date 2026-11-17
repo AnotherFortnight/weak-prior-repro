@@ -301,3 +301,29 @@
   - CelebA / LSUN terms: the user's choice.
   - No LICENSE file, so default copyright applies.
   - The CXR statistics (curves and CSVs, not images) are public.
+
+## 2026-11-17 — README: per-experiment settings and comparison with the paper
+- **Why:** the user asked for clearer experimental steps and settings, compared with the original paper.
+- **What changed (`README.md`):**
+  - short verdict table, E1–E8
+  - "Common setup: paper vs ours" table, marking each item as same / our choice / different
+  - forward-operator table (paper Table 18 vs ours)
+  - "How one run works" in 7 steps, plus the baselines
+  - one section per experiment (E1–E9), each with the paper's setting, ours, and a results table in "ours [paper]" form; figures moved into their experiment's section
+- **New comparisons:**
+  - E4: mismatch cost per prior vs the paper.
+  - E6: HoldoutTopK and AdamSphere gains vs the paper.
+  - E1: pool-size table.
+  - E2: full lag table.
+  - E3: the Thm 3.2 check numbers.
+- **Corrections found while checking:**
+  - The face gap in E4 is 2.3–4.6 dB, not 2.7–4.6: Gaussian deblur with the Church prior is −2.32.
+  - The paper's box-inpainting in-vs-out gap is 1.9–3.1.
+- **Newly noted differences from the paper:**
+  - The paper used 50 images for the ablation (Table 5); we used 100.
+  - App. C.11 says INO "typically" uses 500 iterations, while C.12 and our runs use 1000.
+- **Verification:**
+  - Every number was checked against `results/summary.md`, `results/scoregap/table1.csv`, `results/autocorr/*.csv`, `results/toy/thm32_check.csv` and the paper text.
+  - Derived differences were recomputed with a script.
+  - All relative links exist and are not git-ignored.
+- **Pushed** on the user's go ("推送").
