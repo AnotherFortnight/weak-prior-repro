@@ -1,0 +1,17 @@
+{
+ "method": "dps",
+ "task": "nonlinear",
+ "target": "church",
+ "prior": "church",
+ "n": 20,
+ "start": 0,
+ "sigma": 0.01,
+ "opt": "adamsphere",
+ "iters": 1000,
+ "zeta": 0.1,
+ "tag": "",
+ "rep": null,
+ "batch": 20,
+ "lr": 0.01,
+ "holdout": 0.1
+}

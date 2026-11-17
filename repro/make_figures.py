@@ -54,6 +54,17 @@ def main():
                         + [img(os.path.join(ROOT, "data", "test", tgt, f"{i:03d}.png"))])
             names.append(f"{tgt} #{i}")
     grid(rows, ["measurement", "DMPlug", "Ours", "reference"], names, os.path.join(OUT, "recon_nonlinear.png"))
+    # Table 13 (Figures 11, 12 analogue): latent priors on ImageNet 512
+    rows, names = [], []
+    for task in ["inpaint", "gauss"]:
+        for i in range(2):
+            run = lambda m, p: os.path.join(RUNS, f"{m}_{task}_imagenet_from-{p}_sigma0.01", f"{i:03d}.png")
+            rows.append([img(run("ino", "sd21").replace(".png", "_measurement.png"))]
+                        + [img(run(m, p)) for m, p in [("dps", "sd21"), ("dsg", "sd21"), ("ino", "sd21"), ("ino", "dit")]]
+                        + [img(os.path.join(ROOT, "data", "test", "imagenet", f"{i:03d}.png"))])
+            names.append(f"{task} #{i}")
+    grid(rows, ["measurement", "DPS (SD 2.1)", "DSG (SD 2.1)", "Ours SD 2.1", "Ours DiT", "reference"], names,
+         os.path.join(OUT, "recon_latent_imagenet.png"), size=160)
     # Figure 1 analogue: optimisation trajectories (iteration 1, 5, 10, 100, 1000 | output | reference | measurement)
     rows, names = [], []
     for task, tgt, priors in [("inpaint", "celeba", ["celeba", "bedroom"]), ("sr4", "bedroom", ["bedroom", "celeba"])]:

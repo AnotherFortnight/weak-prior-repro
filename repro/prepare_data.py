@@ -4,6 +4,8 @@ CelebA-HQ: korexyz/celeba-hq-256x256 validation split (2000 images, already 256x
 LSUN Bedroom / Church outdoor: official LSUN val LMDBs (300 images each), ADM-style center crop + resize.
 celeba178 (test-set check only): original CelebA aligned test faces (178x218, first of 3 test shards of
   flwrlabs/celeba), same crop + resize, i.e. upsampled x1.44. The paper cites Liu et al. 2015 for its faces; DMPlug did too.
+imagenet (Table 13, 512x512): ImageNet val, first of 14 shards of ILSVRC/imagenet-1k (gated on Hugging Face: accept its
+  terms first), same crop to 512.
 Run: python -s repro/prepare_data.py [domain ...]     (no argument: all domains)
 """
 import csv
@@ -46,6 +48,15 @@ def celeba178_images():
         yield rec.get("path") or f"test0_{i:04d}", center_crop_arr(Image.open(io.BytesIO(rec["bytes"])).convert("RGB"))
 
 
+def imagenet_images():
+    import pyarrow.parquet as pq
+    from huggingface_hub import hf_hub_download
+    f = hf_hub_download("ILSVRC/imagenet-1k", "data/validation-00000-of-00014.parquet", repo_type="dataset",
+                        local_dir=os.path.join(DATA, "imagenet_hf"))
+    for i, rec in enumerate(pq.read_table(f, columns=["image"]).column("image").to_pylist()):
+        yield rec.get("path") or f"val0_{i:04d}", center_crop_arr(Image.open(io.BytesIO(rec["bytes"])).convert("RGB"), 512)
+
+
 def lsun_images(path):
     import lmdb
     env = lmdb.open(path, readonly=True, lock=False, readahead=False, meminit=False)
@@ -60,12 +71,13 @@ def main():
         "bedroom": lambda: lsun_images(os.path.join(DATA, "lsun_bedroom_val/bedroom_val_lmdb")),
         "church": lambda: lsun_images(os.path.join(DATA, "lsun_church_val/church_outdoor_val_lmdb")),
         "celeba178": celeba178_images,
+        "imagenet": imagenet_images,
     }
     for name, gen in sources.items():
         if sys.argv[1:] and name not in sys.argv[1:]:
             continue
         items = list(gen())
-        assert all(a.shape == (SIZE, SIZE, 3) for _, a in items), name
+        assert all(a.shape == ((512, 512, 3) if name == "imagenet" else (SIZE, SIZE, 3)) for _, a in items), name
         pick = np.random.default_rng(SEED).permutation(len(items))[:N_TEST]
         out = os.path.join(DATA, "test", name)
         os.makedirs(out, exist_ok=True)

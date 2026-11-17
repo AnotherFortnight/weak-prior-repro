@@ -88,3 +88,44 @@ ino --task nonlinear --target church --prior church
 dmplug --task nonlinear --target celeba
 dmplug --task nonlinear --target bedroom
 dmplug --task nonlinear --target church
+dps --task nonlinear --target celeba
+dps --task nonlinear --target bedroom
+dps --task nonlinear --target church
+ino --task nonlinear --target celeba --prior bedroom
+ino --task nonlinear --target celeba --prior church
+ino --task nonlinear --target bedroom --prior celeba
+ino --task nonlinear --target bedroom --prior church
+ino --task nonlinear --target church --prior celeba
+ino --task nonlinear --target church --prior bedroom
+dps --task nonlinear --target celeba --prior bedroom
+dps --task nonlinear --target celeba --prior church
+dps --task nonlinear --target bedroom --prior celeba
+dps --task nonlinear --target bedroom --prior church
+dps --task nonlinear --target church --prior celeba
+dps --task nonlinear --target church --prior bedroom
+dps --task inpaint --target celeba --rep 0
+dps --task inpaint --target celeba --rep 1
+dps --task inpaint --target celeba --rep 2
+dps --task inpaint --target celeba --rep 3
+dps --task inpaint --target celeba --rep 4
+dps --task nonlinear --target church --zeta 0.3
+dps --task nonlinear --target church --zeta 0.1
+dps --task nonlinear --target bedroom --zeta 0.3
+dps --task nonlinear --target bedroom --zeta 0.1
+dps --task nonlinear --target celeba --prior celeba --zeta 0.3
+dps --task nonlinear --target celeba --prior bedroom --zeta 0.3
+dps --task nonlinear --target celeba --prior church --zeta 0.3
+dps --task nonlinear --target bedroom --prior celeba --zeta 0.3
+dps --task nonlinear --target bedroom --prior bedroom --zeta 0.3
+dps --task nonlinear --target bedroom --prior church --zeta 0.3
+dps --task nonlinear --target church --prior celeba --zeta 0.3
+dps --task nonlinear --target church --prior bedroom --zeta 0.3
+dps --task nonlinear --target church --prior church --zeta 0.3
+latent ino --model sd21 --task inpaint
+latent ino --model sd21 --task gauss
+latent ino --model dit --task inpaint
+latent ino --model dit --task gauss
+latent dps --task inpaint
+latent dps --task gauss
+latent dsg --task inpaint
+latent dsg --task gauss

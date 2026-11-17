@@ -31,6 +31,7 @@ P3 = {  # Tables 3 and 6, keyed by (task, method, prior) -> per target
     ("gauss", "ino", "celeba"): [(29.98, .21, .82), (25.02, .41, .69), (22.21, .45, .58)],
     ("gauss", "ino", "bedroom"): [(27.97, .27, .77), (25.28, .30, .72), (22.09, .38, .59)],
     ("gauss", "ino", "church"): [(27.66, .29, .75), (24.76, .35, .69), (22.43, .30, .62)],
+    ("nonlinear", "dps", "in"): [(24.88, .26, .71), (22.51, .38, .63), (20.31, .39, .54)],
     ("nonlinear", "ino", "celeba"): [(25.21, .27, .74), (22.34, .47, .63), (20.52, .51, .52)],
     ("nonlinear", "ino", "bedroom"): [(24.59, .39, .69), (22.67, .39, .64), (20.79, .47, .54)],
     ("nonlinear", "ino", "church"): [(24.73, .39, .69), (22.59, .42, .63), (20.88, .39, .56)],
@@ -54,6 +55,33 @@ P16 = {0.01: [(31.98, .1447, .8827, None), (33.78, .1476, .9147, 974.09), (32.62
        0.5: [(24.45, .2692, .7004, None), (26.30, .2596, .7335, 168.64), (23.86, .4366, .6183, 155.89)],
        1.0: [(22.42, .3095, .6518, None), (20.52, .3771, .4915, 119.05), (16.88, .6171, .2962, 108.28)]}
 
+ZETA_NL = "_zeta0.3"   # DPS on nonlinear deblurring: zeta' = 1 (DPS paper) diverges on 0-29 % of images, see WORKLOG
+P15 = {  # Table 15: DPS on nonlinear deblurring, (source model, target) -> (PSNR, LPIPS, SSIM)
+    ("celeba", "celeba"): (24.88, .264, .709), ("church", "celeba"): (22.38, .433, .631),
+    ("bedroom", "celeba"): (23.57, .411, .660), ("church", "church"): (20.31, .385, .539),
+    ("celeba", "church"): (20.06, .508, .490), ("bedroom", "church"): (19.84, .469, .512),
+    ("bedroom", "bedroom"): (22.51, .375, .633), ("celeba", "bedroom"): (21.98, .477, .588),
+    ("church", "bedroom"): (22.04, .422, .614)}
+P13 = {  # Table 13, ImageNet: (task, method, model) -> (PSNR, LPIPS, SSIM)
+    ("inpaint", "ino", "dit"): (28.44, .394, .727), ("inpaint", "ino", "sd21"): (26.82, .374, .745),
+    ("inpaint", "dps", "sd21"): (28.21, .292, .797), ("inpaint", "dsg", "sd21"): (23.33, .503, .597),
+    ("gauss", "ino", "dit"): (26.48, .458, .678), ("gauss", "ino", "sd21"): (25.40, .443, .685),
+    ("gauss", "dps", "sd21"): (25.49, .388, .728), ("gauss", "dsg", "sd21"): (22.09, .510, .539)}
+P17 = {  # Table 17, CelebA-HQ inpainting: (NFE, seconds on L40S, PSNR, LPIPS, SSIM)
+    "INO, 333 iterations": (999, 56.34, 31.86, .2039, .8721), "DPS, single run": (1000, 40.44, 32.27, .1449, .8851),
+    "INO, 1000 iterations": (3000, 171.16, 34.13, .1485, .9174), "DPS, best of 3": (3000, 120.40, 32.36, .1442, .8855),
+    "DPS, best of 5": (5000, 200.04, 32.40, .1436, .8864)}
+
+
+def htk_at(logs, h, K=5):
+    """Mean PSNR of HoldoutTopK (latest of the K lowest holdout losses) restricted to the first h iterations."""
+    out = []
+    for f in logs:
+        z = np.load(f)
+        ho, ps = z["holdout"][:h, 0], z["psnr"][:h, 0]
+        out.append(ps[np.argsort(ho, kind="stable")[:K].max()])
+    return np.mean(out)
+
 
 def cell(method, task, target, prior=None, sigma=0.01, suffix=""):
     d = os.path.join(RUNS, f"{method}_{task}_{target}_from-{prior or target}_sigma{sigma:g}{suffix}")
@@ -63,7 +91,8 @@ def cell(method, task, target, prior=None, sigma=0.01, suffix=""):
 
 
 def vals(res, rule, metric):
-    return np.array([r[rule][metric] for r in res if rule in r])
+    v = np.array([r[rule][metric] for r in res if rule in r], dtype=float)
+    return v[np.isfinite(v)]          # a diverged DPS sample (NaN) is counted in n but not in the mean
 
 
 def fmt(res, rule, metric, ref=None, nd=2):
@@ -87,7 +116,7 @@ def table3(lines, tasks):
         for method, prior in [("dps", "in"), ("ino", "celeba"), ("ino", "bedroom"), ("ino", "church")]:
             row, ns = [task, "DPS" if method == "dps" else "Ours", prior], []
             for j, tgt in enumerate(T):
-                res, _ = cell(method, task, tgt, None if prior == "in" else prior)
+                res, _ = cell(method, task, tgt, None if prior == "in" else prior, suffix=ZETA_NL if (method, task) == ("dps", "nonlinear") else "")
                 row += triple(res, "dps" if method == "dps" else "htk5", P3.get((task, method, prior), [None] * 3)[j])
                 ns.append(len(res))
             lines.append("| " + " | ".join(row + ["/".join(map(str, ns))]) + " |")
@@ -97,8 +126,8 @@ def main():
     L = ["# Reproduction summary", "",
          "Cells: reproduced mean ± s.e. over the first n test images, [paper value]. "
          f"LPIPS = {LP}. Ours = 3-step DDIM INO with AdamSphere + HoldoutTopK (K = 5).", ""]
-    L += ["## Table 3 (inpainting, 4x SR) and Table 6 (Gaussian deblurring)", ""]
-    table3(L, ["inpaint", "sr4", "gauss"])
+    L += ["## Table 3 (inpainting, 4x SR) and Table 6 (Gaussian and nonlinear deblurring)", ""]
+    table3(L, ["inpaint", "sr4", "gauss", "nonlinear"])
 
     L += ["", "## Tables 4 / 7: Ours vs DMPlug (in-domain, same z0)", "",
           "| Task | Target | Ours PSNR | LPIPS | SSIM | DMPlug PSNR | LPIPS | SSIM | n |", "|" + "---|" * 9]
@@ -191,6 +220,54 @@ def main():
                 L.append("| " + " | ".join([task, "DPS" if method == "dps" else "Ours", prior, fmt(hq, rule, "psnr")]
                                            + triple(res, rule, P3[(task, method, prior)][0]) + [str(len(res))]) + " |")
 
+    L += ["", "## Table 15: DPS with matched and mismatched 1000-step priors, nonlinear deblurring", "",
+          "Step size zeta' = 0.3 (chosen on the first 20 images of Church and Bedroom from {1, 0.3, 0.1}). With the DPS "
+          "paper's zeta' = 1, some images diverge to stripe artefacts: last two columns (mean over finite PSNRs).", "",
+          "| Target | Source model | PSNR | LPIPS | SSIM | finite / n | PSNR, zeta' = 1 | images < 12 dB or NaN, zeta' = 1 |",
+          "|---|---|---|---|---|---|---|---|"]
+    for tgt in T:
+        for src in [tgt] + [x for x in T if x != tgt]:
+            res, _ = cell("dps", "nonlinear", tgt, src, suffix=ZETA_NL)
+            r1, _ = cell("dps", "nonlinear", tgt, src)
+            p1 = np.array([r["dps"]["psnr"] for r in r1], dtype=float)
+            extra = [f"{np.nanmean(p1):.2f}", f"{int((~(p1 >= 12)).sum())}/{len(p1)}"] if len(p1) else ["", ""]
+            if res:
+                nf = len(vals(res, "dps", "psnr"))
+                L.append("| " + " | ".join([tgt, src] + triple(res, "dps", P15[(src, tgt)]) + [f"{nf}/{len(res)}"] + extra)
+                         + " |")
+
+    L += ["", "## Table 13: few-step latent priors on ImageNet 512 (repro/latent.py)", "",
+          "Ours = 3-step DDIM in latent space + VAE decoder, INO 500 iterations, HoldoutTopK K = 5. DPS / DSG: SD 2.1, "
+          "500 Euler-ancestral steps (third-party implementation cited by the paper).", "",
+          "| Task | Method | Model | PSNR | LPIPS | SSIM | n |", "|---|---|---|---|---|---|---|"]
+    for (task, method, model), ref in P13.items():
+        res, _ = cell(method, task, "imagenet", model)
+        if res:
+            L.append("| " + " | ".join([task, "Ours" if method == "ino" else method.upper(), model]
+                                       + triple(res, "htk5" if method == "ino" else method, ref) + [str(len(res))]) + " |")
+
+    L += ["", "## Table 17: matched compute, CelebA-HQ inpainting", "",
+          "DPS best of k: of k independent DPS runs on the same measurement, the one with the smallest residual "
+          "||A(x) - y||, which needs no ground truth; 'oracle' picks the highest PSNR instead. The paper does not say "
+          "how it picks. Seconds: ours on GH200 (batched), [paper on L40S]. INO at 333 iterations: PSNR only.", "",
+          "| Method | NFE | seconds / image | PSNR | LPIPS | SSIM | oracle PSNR | n |", "|---|---|---|---|---|---|---|---|"]
+    ino, logs = cell("ino", "inpaint", "celeba")
+    reps = [cell("dps", "inpaint", "celeba", suffix=f"_rep{r}")[0] for r in range(5)]
+    if ino and all(len(r) == len(ino) for r in reps):
+        sec_ino, sec_dps = np.mean([r["seconds"] for r in ino]), np.mean([r["seconds"] for r in reps[0]])
+        for name, (nfe, psec, pp, pl, pss) in P17.items():
+            if name.startswith("INO"):
+                h = int(name.split()[1])
+                tri = ([f"{htk_at(logs, h):.2f} [{pp:.2f}]", f"— [{pl:.2f}]", f"— [{pss:.2f}]"] if h < 1000
+                       else triple(ino, "htk5", (pp, pl, pss)))
+                row, sec, orc = tri, sec_ino * h / 1000, ""
+            else:
+                k = 1 if "single" in name else int(name.split()[-1])
+                pick = [min(rs, key=lambda r: r["dps"]["resid"]) for rs in zip(*reps[:k])]
+                orc = f"{np.mean([max(r['dps']['psnr'] for r in rs) for rs in zip(*reps[:k])]):.2f}"
+                row, sec = triple(pick, "dps", (pp, pl, pss)), sec_dps * k
+            L.append("| " + " | ".join([name, str(nfe), f"{sec:.0f} [{psec:.0f}]"] + row + [orc, str(len(ino))]) + " |")
+
     L += ["", "## Compute (fp16 + torch.compile; B = images per GPU pass, peak MiB is per pass)", "",
           "| cell type | device | B | mean seconds / image | peak MiB | INO PSNR@333 it (htk5 on first 333) | @1000 |",
           "|---|---|---|---|---|---|---|"]
@@ -198,17 +275,7 @@ def main():
         res, logs = cell(method, task, tgt)
         if not res:
             continue
-        cut = ""
-        if logs:
-            def at(h):
-                out = []
-                for f in logs:
-                    z = np.load(f)
-                    ho, ps = z["holdout"][:h, 0], z["psnr"][:h, 0]
-                    top = np.argsort(ho, kind="stable")[:5]
-                    out.append(ps[top.max()])
-                return np.mean(out)
-            cut = [f"{at(333):.2f}", f"{at(1000):.2f}"] if method == "ino" else ["", ""]
+        cut = [f"{htk_at(logs, 333):.2f}", f"{htk_at(logs, 1000):.2f}"] if logs and method == "ino" else ""
         L.append("| " + " | ".join([f"{method} {task} {tgt}", "/".join(sorted({r.get("device", "RTX A1000") for r in res})),
                                     "/".join(sorted({str(r.get("batch", 1)) for r in res}, key=int)),
                                     f"{np.mean([r['seconds'] for r in res]):.0f}",

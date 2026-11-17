@@ -15,4 +15,5 @@ N=${1:-5} B=${2:-16}
 args=$(grep -v '^#' repro/cluster/cells.txt | sed -n "${SLURM_ARRAY_TASK_ID}p")
 [ -n "$args" ] || { echo "no cell ${SLURM_ARRAY_TASK_ID}"; exit 1; }
 echo "cell ${SLURM_ARRAY_TASK_ID}: $args --n $N --batch $B on $(hostname)"
-HF_HUB_OFFLINE=1 $PY repro/run.py $args --n "$N" --batch "$B" 2>&1 | sed -E '/warn|deprecat/Id'   # sed exits 0, so pipefail reports run.py's status
+script=repro/run.py; [[ $args == latent\ * ]] && { script=repro/latent.py; args=${args#latent }; }   # Table 13 lines
+HF_HUB_OFFLINE=1 $PY $script $args --n "$N" --batch "$B" 2>&1 | sed -E '/warn|deprecat/Id'   # sed exits 0, so pipefail reports run.py's status

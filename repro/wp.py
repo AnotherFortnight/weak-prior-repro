@@ -187,7 +187,7 @@ def _tangent(u, z, r2):
 
 def ino(model, task, gt, seeds, iters=1000, lr=0.02, opt="adamsphere", holdout=0.1, ks=(1, 3, 5, 10, 20, 50),
         wmv=(10, 100), k_steps=3, spacing="leading", clip=True, ckpt=False, snaps=(0, 4, 9, 99, 999),
-        stop_on_wmv=False):
+        stop_on_wmv=False, gen=None, zshape=None):
     """argmin_z ||A(G(z)) - y||^2 on the fit entries (Eq. 2).
 
     opt: 'adamsphere' (App. B: tangent gradient -> Adam moments -> tangent direction -> normalisation retraction,
@@ -197,9 +197,10 @@ def ino(model, task, gt, seeds, iters=1000, lr=0.02, opt="adamsphere", holdout=0
       last: final iterate; oracle: best PSNR w.r.t. the ground truth (analysis only, never used for selection);
       iter{t}: the iterate after t-1 updates (iter1 = unconditional k-step sample), as in Figure 1.
     stop_on_wmv: terminate once ES-WMV has stopped for every image (DMPlug behaviour; 'last' is then that iterate).
+    gen, zshape: another generator z -> image and its noise shape (latent priors, latent.py); default: k-step DDIM.
     """
     B = gt.shape[0]
-    z = torch.stack([torch.randn(gt.shape[1:], generator=torch.Generator().manual_seed(int(s) + 7919))
+    z = torch.stack([torch.randn(zshape or gt.shape[1:], generator=torch.Generator().manual_seed(int(s) + 7919))
                      for s in seeds]).to(DEV)
     r2 = (z.flatten(1).norm(dim=1) ** 2).view(B, 1, 1, 1)
     fit, ho = split_holdout(task.obs, holdout, task.gens) if holdout > 0 else (task.obs, None)
@@ -216,7 +217,7 @@ def ino(model, task, gt, seeds, iters=1000, lr=0.02, opt="adamsphere", holdout=0
     nfit = fit.flatten(1).sum(1) * gt.shape[1]
     for it in range(iters):
         z.requires_grad_(True)
-        x = ddim(model, z, k_steps, spacing, clip, ckpt)
+        x = gen(z) if gen else ddim(model, z, k_steps, spacing, clip, ckpt)
         res2 = (task.A(x) - task.y) ** 2
         lfit = (res2 * fit).flatten(1).sum(1)          # sum-reduced: scale-free for Adam, safe for fp16 grads
         grad, = torch.autograd.grad(lfit.sum(), z)

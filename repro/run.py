@@ -5,6 +5,7 @@
   python -s repro/run.py dps    --task sr4     --target church --n 5                  # 1000-step DPS, in-domain
   python -s repro/run.py dmplug --task gauss   --target bedroom --n 5                 # Adam lr 1e-2 + ES-WMV
   python -s repro/run.py ino    --task sr4     --target church --n 100 --batch 16     # large GPU: 16 images per pass
+  python -s repro/run.py dps    --task inpaint --target celeba --rep 2 --n 5         # Table 17: another DPS sample
 
 Writes results/runs/<cell>/NNN.json (metrics of every selection rule), NNN_log.npz (per-iteration fit / holdout
 loss and PSNR) and NNN.png (main output: htk5 for ours, wmv for DMPlug). Batched images are optimised
@@ -45,6 +46,8 @@ def cell_name(a):
         s += f"_{a.opt}"
     if a.method == "dps" and a.zeta != 1.0:
         s += f"_zeta{a.zeta:g}"
+    if a.rep is not None:
+        s += f"_rep{a.rep}"
     return s + (f"_{a.tag}" if a.tag else "")
 
 
@@ -62,6 +65,7 @@ def main():
     p.add_argument("--iters", type=int, default=1000)
     p.add_argument("--zeta", type=float, default=1.0)
     p.add_argument("--tag", default="")
+    p.add_argument("--rep", type=int, help="DPS only: independent sampling run r (same measurement), for Table 17")
     p.add_argument("--batch", type=int, default=1, help="images per GPU pass (about 4.3 GB each); DMPlug runs 1")
     a = p.parse_args()
 
@@ -89,7 +93,8 @@ def main():
         torch.cuda.reset_peak_memory_stats()
         t0 = time.time()
         if a.method == "dps":
-            outs = {"dps": (wp.dps(model, task, gt.shape, seeds, a.zeta), [999] * len(idx))}
+            outs = {"dps": (wp.dps(model, task, gt.shape, [s + 7_000_003 * (a.rep or 0) for s in seeds], a.zeta),
+                            [999] * len(idx))}
         else:
             outs, log = wp.ino(model, task, gt, seeds, iters=a.iters, lr=lr, opt=opt, holdout=hfrac,
                                stop_on_wmv=a.method == "dmplug")
@@ -98,6 +103,9 @@ def main():
                 "peak_mib": torch.cuda.max_memory_allocated() / 2 ** 20,   # whole batch
                 "batch": len(idx), "device": torch.cuda.get_device_name()}
         mets = {rule: wp.metrics(x, gt) for rule, (x, _) in outs.items()}
+        if a.method == "dps":     # ||A(x) - y|| on the observed entries: a ground-truth-free "best of k" rule (Table 17)
+            with torch.no_grad():
+                resid = ((task.A(outs["dps"][0]) - task.y) * task.obs).flatten(1).norm(dim=1).tolist()
         meas = task.y if task.y.shape == gt.shape else \
             torch.nn.functional.interpolate(task.y, size=gt.shape[-2:], mode="nearest")
         for b, i in enumerate(idx):
@@ -107,6 +115,8 @@ def main():
             res = dict(info)
             for rule, (x, its) in outs.items():
                 res[rule] = {k: v[b] for k, v in mets[rule].items()} | {"iter": int(its[b])}
+            if a.method == "dps":
+                res["dps"]["resid"] = float(resid[b])
             main_x = outs[MAIN_RULE[a.method]][0][b:b + 1]
             save_png(main_x, os.path.join(out, f"{i:03d}.png"))
             if i < 3:

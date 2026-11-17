@@ -1,0 +1,17 @@
+{
+ "method": "dps",
+ "task": "nonlinear",
+ "target": "bedroom",
+ "prior": "bedroom",
+ "n": 100,
+ "start": 0,
+ "sigma": 0.01,
+ "opt": "adamsphere",
+ "iters": 1000,
+ "zeta": 0.3,
+ "tag": "",
+ "rep": null,
+ "batch": 25,
+ "lr": 0.01,
+ "holdout": 0.1
+}

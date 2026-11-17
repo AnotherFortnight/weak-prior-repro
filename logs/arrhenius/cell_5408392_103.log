@@ -1,0 +1,110 @@
+cell 103: dps --task nonlinear --target church --prior celeba --n 100 --batch 25 on n509
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-celebahq-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-celebahq-256'.
+An error occurred while trying to fetch google/ddpm-celebahq-256: google/ddpm-celebahq-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_nonlinear_church_from-celeba_sigma0.01 img 0: PSNR 19.50 SSIM 0.558 LPIPS(alex/vgg) 0.328/0.421 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 1: PSNR 17.85 SSIM 0.497 LPIPS(alex/vgg) 0.520/0.474 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 2: PSNR 12.80 SSIM 0.351 LPIPS(alex/vgg) 0.533/0.590 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 3: PSNR 11.41 SSIM 0.266 LPIPS(alex/vgg) 0.590/0.628 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 4: PSNR 13.75 SSIM 0.292 LPIPS(alex/vgg) 0.562/0.584 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 5: PSNR 12.20 SSIM 0.293 LPIPS(alex/vgg) 0.621/0.634 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 6: PSNR 16.71 SSIM 0.417 LPIPS(alex/vgg) 0.377/0.512 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 7: PSNR 14.16 SSIM 0.437 LPIPS(alex/vgg) 0.476/0.540 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 8: PSNR 10.00 SSIM 0.156 LPIPS(alex/vgg) 0.606/0.617 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 9: PSNR 17.30 SSIM 0.442 LPIPS(alex/vgg) 0.366/0.476 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 10: PSNR 14.97 SSIM 0.514 LPIPS(alex/vgg) 0.436/0.499 iter 999 | 11s
+  a = ((x[0].clamp(-1, 1).permute(1, 2, 0).cpu().numpy() + 1) * 127.5).round().astype(np.uint8)
+dps_nonlinear_church_from-celeba_sigma0.01 img 11: PSNR nan SSIM nan LPIPS(alex/vgg) nan/nan iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 12: PSNR 13.92 SSIM 0.294 LPIPS(alex/vgg) 0.663/0.633 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 13: PSNR 16.12 SSIM 0.454 LPIPS(alex/vgg) 0.512/0.530 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 14: PSNR 9.87 SSIM 0.148 LPIPS(alex/vgg) 0.723/0.698 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 15: PSNR 11.96 SSIM 0.334 LPIPS(alex/vgg) 0.520/0.550 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 16: PSNR 13.19 SSIM 0.365 LPIPS(alex/vgg) 0.541/0.564 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 17: PSNR 13.59 SSIM 0.505 LPIPS(alex/vgg) 0.470/0.485 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 18: PSNR 16.05 SSIM 0.413 LPIPS(alex/vgg) 0.454/0.489 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 19: PSNR 12.41 SSIM 0.434 LPIPS(alex/vgg) 0.448/0.520 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 20: PSNR 21.53 SSIM 0.692 LPIPS(alex/vgg) 0.232/0.316 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 21: PSNR 15.81 SSIM 0.484 LPIPS(alex/vgg) 0.480/0.516 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 22: PSNR 25.93 SSIM 0.816 LPIPS(alex/vgg) 0.180/0.230 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 23: PSNR 11.36 SSIM 0.262 LPIPS(alex/vgg) 0.658/0.634 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 24: PSNR 16.98 SSIM 0.499 LPIPS(alex/vgg) 0.410/0.525 iter 999 | 11s
+dps_nonlinear_church_from-celeba_sigma0.01 img 25: PSNR 13.29 SSIM 0.316 LPIPS(alex/vgg) 0.587/0.606 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 26: PSNR 21.05 SSIM 0.682 LPIPS(alex/vgg) 0.223/0.303 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 27: PSNR 9.58 SSIM 0.114 LPIPS(alex/vgg) 0.672/0.692 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 28: PSNR 12.40 SSIM 0.263 LPIPS(alex/vgg) 0.543/0.585 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 29: PSNR 13.72 SSIM 0.467 LPIPS(alex/vgg) 0.497/0.464 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 30: PSNR 12.70 SSIM 0.353 LPIPS(alex/vgg) 0.739/0.625 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 31: PSNR 14.94 SSIM 0.455 LPIPS(alex/vgg) 0.385/0.466 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 32: PSNR 19.87 SSIM 0.535 LPIPS(alex/vgg) 0.484/0.500 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 33: PSNR 13.02 SSIM 0.196 LPIPS(alex/vgg) 0.607/0.596 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 34: PSNR 24.13 SSIM 0.707 LPIPS(alex/vgg) 0.247/0.374 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 35: PSNR 13.92 SSIM 0.528 LPIPS(alex/vgg) 0.325/0.447 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 36: PSNR 13.11 SSIM 0.412 LPIPS(alex/vgg) 0.489/0.550 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 37: PSNR 13.18 SSIM 0.419 LPIPS(alex/vgg) 0.527/0.529 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 38: PSNR 14.46 SSIM 0.266 LPIPS(alex/vgg) 0.456/0.589 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 39: PSNR 13.97 SSIM 0.562 LPIPS(alex/vgg) 0.423/0.500 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 40: PSNR 11.26 SSIM 0.393 LPIPS(alex/vgg) 0.494/0.470 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 41: PSNR 15.13 SSIM 0.468 LPIPS(alex/vgg) 0.441/0.503 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 42: PSNR 18.67 SSIM 0.618 LPIPS(alex/vgg) 0.385/0.456 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 43: PSNR 13.92 SSIM 0.351 LPIPS(alex/vgg) 0.635/0.641 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 44: PSNR 11.17 SSIM 0.147 LPIPS(alex/vgg) 0.789/0.693 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 45: PSNR 12.20 SSIM 0.203 LPIPS(alex/vgg) 0.574/0.625 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 46: PSNR 12.12 SSIM 0.299 LPIPS(alex/vgg) 0.520/0.548 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 47: PSNR 11.84 SSIM 0.241 LPIPS(alex/vgg) 0.584/0.633 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 48: PSNR 13.02 SSIM 0.392 LPIPS(alex/vgg) 0.502/0.506 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 49: PSNR 12.84 SSIM 0.249 LPIPS(alex/vgg) 0.480/0.594 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 50: PSNR 12.81 SSIM 0.287 LPIPS(alex/vgg) 0.614/0.618 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 51: PSNR 17.79 SSIM 0.545 LPIPS(alex/vgg) 0.384/0.484 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 52: PSNR 18.53 SSIM 0.635 LPIPS(alex/vgg) 0.322/0.374 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 53: PSNR 12.16 SSIM 0.296 LPIPS(alex/vgg) 0.573/0.586 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 54: PSNR 29.40 SSIM 0.857 LPIPS(alex/vgg) 0.154/0.216 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 55: PSNR 11.30 SSIM 0.206 LPIPS(alex/vgg) 0.651/0.663 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 56: PSNR 18.56 SSIM 0.468 LPIPS(alex/vgg) 0.522/0.512 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 57: PSNR 22.31 SSIM 0.859 LPIPS(alex/vgg) 0.120/0.178 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 58: PSNR 17.06 SSIM 0.496 LPIPS(alex/vgg) 0.475/0.532 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 59: PSNR 12.78 SSIM 0.431 LPIPS(alex/vgg) 0.477/0.520 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 60: PSNR 17.14 SSIM 0.580 LPIPS(alex/vgg) 0.335/0.418 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 61: PSNR 9.63 SSIM 0.122 LPIPS(alex/vgg) 0.743/0.716 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 62: PSNR 14.49 SSIM 0.357 LPIPS(alex/vgg) 0.494/0.563 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 63: PSNR 28.32 SSIM 0.829 LPIPS(alex/vgg) 0.139/0.221 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 64: PSNR 20.86 SSIM 0.655 LPIPS(alex/vgg) 0.261/0.349 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 65: PSNR 13.80 SSIM 0.271 LPIPS(alex/vgg) 0.611/0.632 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 66: PSNR 13.57 SSIM 0.367 LPIPS(alex/vgg) 0.669/0.623 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 67: PSNR 26.49 SSIM 0.738 LPIPS(alex/vgg) 0.224/0.248 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 68: PSNR 14.09 SSIM 0.394 LPIPS(alex/vgg) 0.469/0.550 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 69: PSNR 19.10 SSIM 0.469 LPIPS(alex/vgg) 0.330/0.443 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 70: PSNR 15.68 SSIM 0.487 LPIPS(alex/vgg) 0.413/0.482 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 71: PSNR 17.45 SSIM 0.581 LPIPS(alex/vgg) 0.286/0.401 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 72: PSNR 10.92 SSIM 0.293 LPIPS(alex/vgg) 0.688/0.578 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 73: PSNR 11.77 SSIM 0.311 LPIPS(alex/vgg) 0.656/0.559 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 74: PSNR 13.57 SSIM 0.332 LPIPS(alex/vgg) 0.558/0.606 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 75: PSNR 24.62 SSIM 0.785 LPIPS(alex/vgg) 0.220/0.298 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 76: PSNR 18.48 SSIM 0.569 LPIPS(alex/vgg) 0.391/0.453 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 77: PSNR 17.82 SSIM 0.555 LPIPS(alex/vgg) 0.407/0.447 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 78: PSNR 11.35 SSIM 0.176 LPIPS(alex/vgg) 0.597/0.645 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 79: PSNR 10.62 SSIM 0.214 LPIPS(alex/vgg) 0.790/0.671 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 80: PSNR 11.56 SSIM 0.369 LPIPS(alex/vgg) 0.524/0.558 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 81: PSNR 18.06 SSIM 0.488 LPIPS(alex/vgg) 0.397/0.482 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 82: PSNR 13.62 SSIM 0.264 LPIPS(alex/vgg) 0.546/0.587 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 83: PSNR 14.16 SSIM 0.308 LPIPS(alex/vgg) 0.462/0.542 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 84: PSNR 11.81 SSIM 0.211 LPIPS(alex/vgg) 0.574/0.605 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 85: PSNR 12.31 SSIM 0.417 LPIPS(alex/vgg) 0.508/0.532 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 86: PSNR 13.62 SSIM 0.405 LPIPS(alex/vgg) 0.467/0.521 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 87: PSNR 13.56 SSIM 0.311 LPIPS(alex/vgg) 0.469/0.536 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 88: PSNR 17.27 SSIM 0.542 LPIPS(alex/vgg) 0.520/0.496 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 89: PSNR 17.18 SSIM 0.492 LPIPS(alex/vgg) 0.375/0.484 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 90: PSNR 12.08 SSIM 0.298 LPIPS(alex/vgg) 0.570/0.582 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 91: PSNR 18.98 SSIM 0.421 LPIPS(alex/vgg) 0.368/0.481 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 92: PSNR 13.18 SSIM 0.333 LPIPS(alex/vgg) 0.648/0.583 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 93: PSNR 11.83 SSIM 0.172 LPIPS(alex/vgg) 0.775/0.686 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 94: PSNR 18.71 SSIM 0.626 LPIPS(alex/vgg) 0.477/0.444 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 95: PSNR 11.48 SSIM 0.183 LPIPS(alex/vgg) 0.814/0.683 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 96: PSNR 12.17 SSIM 0.412 LPIPS(alex/vgg) 0.520/0.545 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 97: PSNR 12.20 SSIM 0.418 LPIPS(alex/vgg) 0.491/0.511 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 98: PSNR 19.90 SSIM 0.631 LPIPS(alex/vgg) 0.230/0.367 iter 999 | 9s
+dps_nonlinear_church_from-celeba_sigma0.01 img 99: PSNR 13.07 SSIM 0.237 LPIPS(alex/vgg) 0.572/0.607 iter 999 | 9s

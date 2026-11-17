@@ -302,3 +302,93 @@
   - Totals recomputed from the 8,900 `NNN.json` files: method totals sum to 56.8 and settings to 89.
   - The logs show image 100 (`img 99`) in all 89 settings.
 - **Pushed** on the user's go ("推送"); git history not rewritten.
+
+## 2026-11-17 — Remaining paper experiments: decision and runs started
+- **User request:** "你看看需要做吗，需要做的都做一下", i.e. decide which unrun experiments are needed and run those.
+- **Decision:**
+  - Needed:
+    - Table 6, nonlinear rows: makes E4 four tasks.
+    - Table 15 (App. C.9): DPS with mismatched priors. Sec. 2 cites it to separate domain mismatch from the solver.
+    - Table 17 (App. C.11): matched compute. The main text cites it for the fairness of the DPS comparison.
+    - Table 13 (App. C.7): this is the main-text Sec. 4.4 claim. Earlier it was wrongly listed as appendix-only.
+  - Not needed: Tables 8, 9, 10, 11. These are extra baselines (DAPS, DiffPIR, DRP) and other benchmarks (InverseBench), not main-text claims.
+- **Runs:**
+  - Array 5407899, cells 90–98: Table 6 nonlinear. DPS ×3, plus ours with mismatched priors ×6.
+  - Array 5408392, cells 99–109: Table 15 (DPS nonlinear with a mismatched prior ×6) and Table 17 (`dps inpaint celeba --rep 0..4`).
+- **Code:**
+  - `run.py`:
+    - `--rep r` gives DPS another sampling seed while keeping the same measurement; output goes to suffix `_rep{r}`.
+    - DPS JSONs now store `resid` = ||A(x) − y|| on the observed entries, a ground-truth-free rule for best-of-k.
+  - `wp.ino`: optional `gen` and `zshape`, for other generators. The default behaviour is unchanged.
+  - `repro/latent.py` (new), for Table 13:
+    - SD 2.1 base / DiT-XL-2-512 with 3-step DDIM in latent space and the VAE decoder; INO with 500 iterations and lr 0.2 / 0.1.
+    - Latent DPS / DSG following the third-party repo tongdaxu/diffusers-Diffusion-Posterior-Sampling (Euler ancestral, 500 steps, scale 4.8 / 0.02). This repo is cited by the paper and is not the authors' code.
+  - `prepare_data.py`: `imagenet` source, ImageNet val shard 0 at 512.
+  - `cluster/latent_setup.sbatch`: caches the models, computes the null-prompt embedding (transformers installed for that job only), and runs a timing test on 5 ImageNet example images (`data/test/imagenet_ex`, from the repo above).
+  - `cells.sbatch`: lines starting with `latent ` run `latent.py`.
+- **Blocker:** ILSVRC/imagenet-1k is gated on Hugging Face, and the local token's account has not accepted its terms.
+- **Our choices for Table 13 (not stated in the paper):**
+  - 3 DDIM steps
+  - 100 val images, 512 px
+  - Table 18 operators and σ = 0.01
+  - DPS / DSG scales from the repo's README examples
+- **Update, Tables 15 and 17 finished (array 5408392, 1100 images):**
+  - **Table 17:**
+    - DPS best of 3 / 5, picked by residual: 29.45 / 29.44 [32.36 / 32.40]; single run 29.46 [32.27]. Picking the run with the highest PSNR (oracle) gives 29.53 / 29.55.
+    - INO at 333 / 1000 iterations: 28.43 / 29.18 [31.86 / 34.13]. INO does not beat DPS at matched compute here because of the face gap.
+  - **DPS nonlinear with ζ′ = 1** (the DPS paper's value for non-uniform deblurring): 0–29 % of the images per cell diverge to stripe patterns, and a few give NaN. The guidance exploits the BKSE network: the stripes blur back to y.
+  - **Step size chosen on 20 images** (the first 20 Church / Bedroom test images; this only helps the baseline). Results for ζ′ = 1 / 0.3 / 0.1:
+    - Church: 17.94 (4 failed) / 20.03 / 18.64
+    - Bedroom: 21.71 / 22.39 / 20.66
+    - Chosen: ζ′ = 0.3.
+  - **Rerun:** array 5409588, cells 114–122, all 9 DPS nonlinear cells with `--zeta 0.3`.
+  - **`summarize.py`:**
+    - New Table 15 and Table 17 sections.
+    - DPS nonlinear uses ζ′ = 0.3; the ζ′ = 1 PSNR and failure count are kept as extra columns.
+    - `htk_at()` helper.
+- **Update, nonlinear finished:**
+  - **Runs:** array 5407899 (E4 nonlinear, 900 images) and array 5409588 (9 DPS nonlinear cells with ζ′ = 0.3, 860 new images) are done. The logs are in `logs/arrhenius/`.
+  - **E4 nonlinear:**
+    - DPS (ζ′ = 0.3), matched prior: 25.27 / 23.47 / 20.19 [24.88 / 22.51 / 20.31], i.e. within 1 dB of the paper.
+    - Our mismatch cost: 0.56–2.07 dB [0.08–0.62], about 3–7× the paper's. Ours with a mismatched prior still scores above the paper's numbers.
+    - Ours vs DPS: +1.7 to +2.7 dB [+0.2 to +0.6].
+  - **Retraction:** "our blur is probably milder" no longer holds, because DPS on the same measurements matches the paper. The README now says the cause is open.
+  - **Table 15 (ζ′ = 0.3):** all 9 cells are within 1 dB of the paper. One NaN image (Church, CelebA prior) is left out of the mean; `vals()` now drops non-finite values, and n is shown as finite / total.
+  - **README:**
+    - Verdict rows for E10–E12.
+    - The run table now covers 120 settings, 11,840 images and 65.9 GPU-h, computed from the per-image JSONs.
+    - E4 has its four tasks; new sections E10 (Table 15), E11 (Table 17) and E12 (Table 13, in progress).
+    - The "Not reproduced" list now has only Tables 8–11, with the reason.
+    - The K-sensitivity bullet now covers 50 settings (still ≤ 0.17 dB).
+  - **Verification:** every number was re-derived from `results/summary.md` or the JSONs, and all README links exist.
+  - **Not committed or pushed yet.**
+
+## 2026-11-17 — Table 13 (Sec. 4.4) finished: latent priors on ImageNet
+- **Data:**
+  - The user accepted the ILSVRC/imagenet-1k terms on Hugging Face.
+  - `prepare_data.py imagenet`: val shard 0 (3,572 images, 458 MB in `data/imagenet_hf`) → 100 random images (seed 0), 512 px, in `data/test/imagenet`. Sources are listed in `sources.csv`.
+  - The images were uploaded only to the cluster account and are not in git.
+- **Runs:**
+  - Arrays 5415942 (ours: SD 2.1 / DiT × inpainting / Gaussian deblur, 4 images per pass, 1:53–2:05 each) and 5415943 (DPS / DSG, 5 per pass, about 1:04 each).
+  - 800 images, 12.0 GPU-h, no NaN.
+- **Results** (PSNR, ours [paper]):
+
+  | prior / method | inpainting | Gaussian deblur |
+  |---|---|---|
+  | ours, DiT | 25.27 [28.44] | 23.66 [26.48] |
+  | ours, SD 2.1 | 26.74 [26.82] | 24.58 [25.40] |
+  | DPS | 25.93 [28.21] | 23.39 [25.49] |
+  | DSG | 21.81 [23.33] | 21.07 [22.09] |
+
+  - The claim holds: ours is comparable to DPS and 2.6–4.9 dB above DSG.
+  - Our DiT is 2.8–3.2 dB below the paper, so in our runs SD 2.1 beats DiT.
+  - INO still improves at iteration 500: the selected iteration is the last one, and the oracle is ≤ 0.03 dB higher.
+- **Files:**
+  - `summarize.py`: new Table 13 section (`P13`).
+  - `README.md`: E12 section, verdict row, run table (now 128 settings, 12,640 images, 77.9 GPU-h), time per image, ImageNet note under "Not in this repository".
+  - `repro/README.md`: run line, files row and cell ranges.
+- **Verification:**
+  - Every number was taken from `results/summary.md` or the JSONs; the differences were recomputed by hand from those values.
+  - All links exist. The ImageNet PNGs are git-ignored by `results/runs*/*/*.png`.
+- **Pushed** on the user's go ("推送").
+- **Update:** `make_figures.py` builds `recon_latent_imagenet.png`: 2 ImageNet images × 2 tasks, the same number of examples as the paper's Figs. 11–12; the 6 existing figures are unchanged (md5). README E12 shows this figure; the per-image ImageNet PNGs stay unpublished. Discussed with the user: "非商业" is necessary but not sufficient, because the ImageNet terms allow sharing only with people who accept them.

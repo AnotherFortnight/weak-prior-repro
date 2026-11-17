@@ -1,0 +1,13 @@
+{
+ "method": "dps",
+ "model": "sd21",
+ "task": "inpaint",
+ "target": "imagenet",
+ "n": 100,
+ "iters": 500,
+ "batch": 5,
+ "lr": 0.2,
+ "holdout": 0.1,
+ "scale": 4.8,
+ "steps": 500
+}

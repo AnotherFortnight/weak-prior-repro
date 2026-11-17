@@ -1,0 +1,113 @@
+cell 127: latent dps --task inpaint --n 100 --batch 5 on n549
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/Manojb/stable-diffusion-2-1-base: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'Manojb/stable-diffusion-2-1-base'.
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/Manojb/stable-diffusion-2-1-base: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'Manojb/stable-diffusion-2-1-base'.
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 0: PSNR 32.02 SSIM 0.943 LPIPS(alex/vgg) 0.108/0.190 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 1: PSNR 29.27 SSIM 0.895 LPIPS(alex/vgg) 0.136/0.262 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 2: PSNR 25.02 SSIM 0.737 LPIPS(alex/vgg) 0.192/0.265 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 3: PSNR 26.05 SSIM 0.811 LPIPS(alex/vgg) 0.274/0.379 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 4: PSNR 29.22 SSIM 0.803 LPIPS(alex/vgg) 0.198/0.313 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 5: PSNR 21.58 SSIM 0.685 LPIPS(alex/vgg) 0.264/0.315 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 6: PSNR 28.18 SSIM 0.807 LPIPS(alex/vgg) 0.187/0.298 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 7: PSNR 26.41 SSIM 0.868 LPIPS(alex/vgg) 0.142/0.249 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 8: PSNR 29.76 SSIM 0.884 LPIPS(alex/vgg) 0.133/0.273 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 9: PSNR 26.12 SSIM 0.812 LPIPS(alex/vgg) 0.254/0.305 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 10: PSNR 26.28 SSIM 0.810 LPIPS(alex/vgg) 0.198/0.295 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 11: PSNR 26.26 SSIM 0.707 LPIPS(alex/vgg) 0.393/0.445 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 12: PSNR 26.33 SSIM 0.716 LPIPS(alex/vgg) 0.277/0.366 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 13: PSNR 29.57 SSIM 0.845 LPIPS(alex/vgg) 0.255/0.333 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 14: PSNR 22.89 SSIM 0.560 LPIPS(alex/vgg) 0.402/0.434 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 15: PSNR 17.68 SSIM 0.404 LPIPS(alex/vgg) 0.581/0.556 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 16: PSNR 22.05 SSIM 0.648 LPIPS(alex/vgg) 0.303/0.326 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 17: PSNR 27.76 SSIM 0.856 LPIPS(alex/vgg) 0.180/0.277 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 18: PSNR 20.95 SSIM 0.580 LPIPS(alex/vgg) 0.199/0.291 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 19: PSNR 27.63 SSIM 0.724 LPIPS(alex/vgg) 0.260/0.292 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 20: PSNR 26.94 SSIM 0.754 LPIPS(alex/vgg) 0.257/0.322 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 21: PSNR 28.21 SSIM 0.826 LPIPS(alex/vgg) 0.286/0.368 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 22: PSNR 28.98 SSIM 0.650 LPIPS(alex/vgg) 0.489/0.569 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 23: PSNR 24.79 SSIM 0.701 LPIPS(alex/vgg) 0.283/0.331 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 24: PSNR 30.43 SSIM 0.946 LPIPS(alex/vgg) 0.095/0.144 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 25: PSNR 25.08 SSIM 0.685 LPIPS(alex/vgg) 0.353/0.377 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 26: PSNR 22.46 SSIM 0.642 LPIPS(alex/vgg) 0.317/0.378 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 27: PSNR 21.22 SSIM 0.574 LPIPS(alex/vgg) 0.282/0.350 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 28: PSNR 27.98 SSIM 0.803 LPIPS(alex/vgg) 0.238/0.330 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 29: PSNR 30.95 SSIM 0.815 LPIPS(alex/vgg) 0.204/0.281 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 30: PSNR 24.44 SSIM 0.762 LPIPS(alex/vgg) 0.232/0.304 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 31: PSNR 24.77 SSIM 0.644 LPIPS(alex/vgg) 0.329/0.371 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 32: PSNR 32.12 SSIM 0.820 LPIPS(alex/vgg) 0.331/0.350 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 33: PSNR 27.81 SSIM 0.821 LPIPS(alex/vgg) 0.338/0.386 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 34: PSNR 23.25 SSIM 0.722 LPIPS(alex/vgg) 0.249/0.317 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 35: PSNR 24.30 SSIM 0.748 LPIPS(alex/vgg) 0.226/0.311 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 36: PSNR 24.56 SSIM 0.742 LPIPS(alex/vgg) 0.209/0.304 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 37: PSNR 20.90 SSIM 0.609 LPIPS(alex/vgg) 0.289/0.348 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 38: PSNR 17.96 SSIM 0.614 LPIPS(alex/vgg) 0.313/0.363 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 39: PSNR 19.90 SSIM 0.457 LPIPS(alex/vgg) 0.406/0.382 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 40: PSNR 26.84 SSIM 0.730 LPIPS(alex/vgg) 0.306/0.380 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 41: PSNR 23.50 SSIM 0.751 LPIPS(alex/vgg) 0.260/0.316 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 42: PSNR 30.44 SSIM 0.917 LPIPS(alex/vgg) 0.148/0.283 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 43: PSNR 24.19 SSIM 0.718 LPIPS(alex/vgg) 0.237/0.331 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 44: PSNR 30.47 SSIM 0.900 LPIPS(alex/vgg) 0.129/0.234 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 45: PSNR 27.71 SSIM 0.732 LPIPS(alex/vgg) 0.369/0.377 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 46: PSNR 31.46 SSIM 0.840 LPIPS(alex/vgg) 0.301/0.373 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 47: PSNR 29.23 SSIM 0.894 LPIPS(alex/vgg) 0.094/0.206 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 48: PSNR 25.03 SSIM 0.733 LPIPS(alex/vgg) 0.265/0.422 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 49: PSNR 27.29 SSIM 0.907 LPIPS(alex/vgg) 0.207/0.372 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 50: PSNR 24.39 SSIM 0.647 LPIPS(alex/vgg) 0.314/0.341 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 51: PSNR 28.35 SSIM 0.796 LPIPS(alex/vgg) 0.259/0.318 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 52: PSNR 27.40 SSIM 0.748 LPIPS(alex/vgg) 0.284/0.393 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 53: PSNR 20.40 SSIM 0.608 LPIPS(alex/vgg) 0.304/0.346 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 54: PSNR 21.74 SSIM 0.579 LPIPS(alex/vgg) 0.378/0.413 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 55: PSNR 23.52 SSIM 0.764 LPIPS(alex/vgg) 0.237/0.323 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 56: PSNR 28.56 SSIM 0.837 LPIPS(alex/vgg) 0.241/0.295 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 57: PSNR 20.32 SSIM 0.420 LPIPS(alex/vgg) 0.525/0.491 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 58: PSNR 19.31 SSIM 0.456 LPIPS(alex/vgg) 0.408/0.444 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 59: PSNR 23.97 SSIM 0.797 LPIPS(alex/vgg) 0.152/0.290 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 60: PSNR 22.69 SSIM 0.678 LPIPS(alex/vgg) 0.279/0.356 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 61: PSNR 23.26 SSIM 0.624 LPIPS(alex/vgg) 0.290/0.354 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 62: PSNR 29.77 SSIM 0.858 LPIPS(alex/vgg) 0.217/0.269 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 63: PSNR 21.70 SSIM 0.498 LPIPS(alex/vgg) 0.378/0.409 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 64: PSNR 29.60 SSIM 0.807 LPIPS(alex/vgg) 0.253/0.350 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 65: PSNR 27.31 SSIM 0.778 LPIPS(alex/vgg) 0.262/0.293 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 66: PSNR 30.26 SSIM 0.962 LPIPS(alex/vgg) 0.073/0.173 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 67: PSNR 31.09 SSIM 0.875 LPIPS(alex/vgg) 0.310/0.336 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 68: PSNR 19.78 SSIM 0.566 LPIPS(alex/vgg) 0.217/0.285 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 69: PSNR 24.24 SSIM 0.704 LPIPS(alex/vgg) 0.313/0.395 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 70: PSNR 23.60 SSIM 0.605 LPIPS(alex/vgg) 0.393/0.399 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 71: PSNR 27.27 SSIM 0.887 LPIPS(alex/vgg) 0.110/0.203 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 72: PSNR 28.65 SSIM 0.863 LPIPS(alex/vgg) 0.215/0.320 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 73: PSNR 25.68 SSIM 0.742 LPIPS(alex/vgg) 0.238/0.315 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 74: PSNR 20.35 SSIM 0.480 LPIPS(alex/vgg) 0.295/0.369 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 75: PSNR 30.63 SSIM 0.899 LPIPS(alex/vgg) 0.184/0.361 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 76: PSNR 28.99 SSIM 0.777 LPIPS(alex/vgg) 0.341/0.390 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 77: PSNR 29.04 SSIM 0.803 LPIPS(alex/vgg) 0.260/0.351 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 78: PSNR 27.40 SSIM 0.717 LPIPS(alex/vgg) 0.297/0.353 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 79: PSNR 27.64 SSIM 0.798 LPIPS(alex/vgg) 0.207/0.287 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 80: PSNR 27.84 SSIM 0.823 LPIPS(alex/vgg) 0.281/0.370 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 81: PSNR 23.45 SSIM 0.623 LPIPS(alex/vgg) 0.315/0.374 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 82: PSNR 25.38 SSIM 0.815 LPIPS(alex/vgg) 0.238/0.322 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 83: PSNR 26.26 SSIM 0.696 LPIPS(alex/vgg) 0.368/0.394 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 84: PSNR 24.25 SSIM 0.792 LPIPS(alex/vgg) 0.171/0.269 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 85: PSNR 23.47 SSIM 0.639 LPIPS(alex/vgg) 0.295/0.346 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 86: PSNR 25.39 SSIM 0.753 LPIPS(alex/vgg) 0.232/0.336 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 87: PSNR 23.16 SSIM 0.631 LPIPS(alex/vgg) 0.277/0.324 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 88: PSNR 26.73 SSIM 0.780 LPIPS(alex/vgg) 0.177/0.245 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 89: PSNR 26.27 SSIM 0.824 LPIPS(alex/vgg) 0.226/0.332 iter 499 | 37s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 90: PSNR 22.09 SSIM 0.644 LPIPS(alex/vgg) 0.232/0.311 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 91: PSNR 23.56 SSIM 0.558 LPIPS(alex/vgg) 0.401/0.461 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 92: PSNR 30.62 SSIM 0.955 LPIPS(alex/vgg) 0.050/0.142 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 93: PSNR 30.73 SSIM 0.897 LPIPS(alex/vgg) 0.203/0.310 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 94: PSNR 29.05 SSIM 0.801 LPIPS(alex/vgg) 0.394/0.426 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 95: PSNR 27.24 SSIM 0.801 LPIPS(alex/vgg) 0.229/0.348 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 96: PSNR 23.00 SSIM 0.617 LPIPS(alex/vgg) 0.289/0.398 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 97: PSNR 29.62 SSIM 0.864 LPIPS(alex/vgg) 0.183/0.252 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 98: PSNR 25.67 SSIM 0.622 LPIPS(alex/vgg) 0.353/0.387 iter 499 | 38s
+dps_inpaint_imagenet_from-sd21_sigma0.01 img 99: PSNR 27.72 SSIM 0.889 LPIPS(alex/vgg) 0.112/0.210 iter 499 | 38s

@@ -20,6 +20,7 @@ $P repro/exp_autocorr.py        # Tables 2 and 14                               
 $P repro/exp_scoregap.py        # Table 1                                           -> results/scoregap
 nohup bash repro/queue.sh > logs/queue.log 2>&1 &   # Tables 3-7, 12, 16 (resumable; stop: touch logs/STOP)
 $P repro/summarize.py           # -> results/summary.md
+$P repro/prepare_data.py imagenet && $P repro/latent.py setup   # Table 13 (latent priors): ImageNet 512 + SD 2.1 / DiT; setup needs transformers once
 ```
 
 Single cells can also be run directly, e.g.:
@@ -56,7 +57,8 @@ rsync -a arrhenius:weakprior_repro/results/runs/ results/runs/                  
 | `queue.sh` | experiment schedule (breadth-first: n = 2, then n = 5) |
 | `exp_toy.py`, `exp_autocorr.py`, `exp_scoregap.py` | the theory and diagnostic experiments |
 | `summarize.py` | paper-style tables with the paper value in brackets |
-| `cluster/` | Slurm scripts for Arrhenius; `cells.txt` lists every cell that was run (1–76 paper tables, 77–83 CelebA check, 84–89 nonlinear deblurring) |
+| `latent.py` | Table 13: few-step SD 2.1 / DiT priors on ImageNet 512, latent DPS and DSG |
+| `cluster/` | Slurm scripts for Arrhenius; `cells.txt` lists every cell that was run (1–76 paper tables, 77–83 CelebA check, 84–89 nonlinear deblurring, 90–122 Table 6 nonlinear rows / Table 15 / Table 17 / DPS step size, 123–130 Table 13) |
 
 ## Implementation choices (paper statement → what we do)
 

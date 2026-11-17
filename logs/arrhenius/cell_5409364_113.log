@@ -1,0 +1,29 @@
+cell 113: dps --task nonlinear --target bedroom --zeta 0.1 --n 20 --batch 20 on n458
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-bedroom-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-bedroom-256'.
+An error occurred while trying to fetch google/ddpm-bedroom-256: google/ddpm-bedroom-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 0: PSNR 18.28 SSIM 0.292 LPIPS(alex/vgg) 0.612/0.575 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 1: PSNR 19.03 SSIM 0.424 LPIPS(alex/vgg) 0.464/0.515 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 2: PSNR 18.80 SSIM 0.464 LPIPS(alex/vgg) 0.365/0.431 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 3: PSNR 19.12 SSIM 0.550 LPIPS(alex/vgg) 0.345/0.407 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 4: PSNR 19.61 SSIM 0.510 LPIPS(alex/vgg) 0.251/0.370 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 5: PSNR 25.72 SSIM 0.787 LPIPS(alex/vgg) 0.187/0.301 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 6: PSNR 17.15 SSIM 0.350 LPIPS(alex/vgg) 0.397/0.454 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 7: PSNR 21.31 SSIM 0.525 LPIPS(alex/vgg) 0.389/0.480 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 8: PSNR 21.20 SSIM 0.541 LPIPS(alex/vgg) 0.399/0.435 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 9: PSNR 27.13 SSIM 0.822 LPIPS(alex/vgg) 0.230/0.299 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 10: PSNR 20.89 SSIM 0.620 LPIPS(alex/vgg) 0.412/0.421 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 11: PSNR 18.64 SSIM 0.478 LPIPS(alex/vgg) 0.288/0.419 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 12: PSNR 21.15 SSIM 0.629 LPIPS(alex/vgg) 0.318/0.385 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 13: PSNR 21.57 SSIM 0.751 LPIPS(alex/vgg) 0.301/0.305 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 14: PSNR 15.95 SSIM 0.280 LPIPS(alex/vgg) 0.414/0.531 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 15: PSNR 22.75 SSIM 0.621 LPIPS(alex/vgg) 0.300/0.414 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 16: PSNR 19.60 SSIM 0.514 LPIPS(alex/vgg) 0.320/0.373 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 17: PSNR 22.72 SSIM 0.641 LPIPS(alex/vgg) 0.387/0.414 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 18: PSNR 22.38 SSIM 0.699 LPIPS(alex/vgg) 0.402/0.399 iter 999 | 12s
+dps_nonlinear_bedroom_from-bedroom_sigma0.01_zeta0.1 img 19: PSNR 20.13 SSIM 0.399 LPIPS(alex/vgg) 0.460/0.509 iter 999 | 12s
