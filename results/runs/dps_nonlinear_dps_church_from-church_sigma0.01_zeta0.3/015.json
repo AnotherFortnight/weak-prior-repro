@@ -1,0 +1,14 @@
+{
+ "seconds": 11.75008121728897,
+ "peak_mib": 20454.0654296875,
+ "batch": 20,
+ "device": "NVIDIA GH200 120GB",
+ "dps": {
+  "psnr": NaN,
+  "ssim": NaN,
+  "lpips_alex": NaN,
+  "lpips_vgg": NaN,
+  "iter": 999,
+  "resid": NaN
+ }
+}

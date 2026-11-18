@@ -392,3 +392,57 @@
   - All links exist. The ImageNet PNGs are git-ignored by `results/runs*/*/*.png`.
 - **Pushed** on the user's go ("推送").
 - **Update:** `make_figures.py` builds `recon_latent_imagenet.png`: 2 ImageNet images × 2 tasks, the same number of examples as the paper's Figs. 11–12; the 6 existing figures are unchanged (md5). README E12 shows this figure; the per-image ImageNet PNGs stay unpublished. Discussed with the user: "非商业" is necessary but not sufficient, because the ImageNet terms allow sharing only with people who accept them.
+
+## 2026-11-17 — Isolation from the authors' code; diagnosing the remaining gaps
+- **Isolation:**
+  - The user said the authors' original code is now downloaded inside the project, and asked that it never be looked at.
+  - Checked by top-level names only:
+    - Nothing new is untracked.
+    - The last two commits contain only `.gitignore`, `README.md`, `WORKLOG.md`, `logs/`, `repro/`, `results/` and the removed synthetic files.
+    - So the code is in a git-ignored folder (or outside the repo) and has never been committed or pushed.
+  - Saved as a feedback memory: never read, list or grep it, and scope every command to known paths.
+- **Third-party code read (DPS official repo, DPS2022/diffusion-posterior-sampling; not the paper's authors):**
+  - The nonlinear blur operator draws a NEW kernel code (1.2·randn) on every forward call and clamps its output.
+  - The default configs use step size ζ′ = 0.5 for inpainting and 0.3 for SR, Gaussian and nonlinear deblurring (σ = 0.05).
+  - The DPS paper's App. D says ζ′ = 1. Our ζ′ = 0.3 for nonlinear already matched the paper's DPS (E10).
+  - We did not read DMPlug's code: one of its authors may be an author of this paper.
+- **Diagnostics submitted** (20 images each; arrays 5418938, cells 131–153, and 5418939, cells 154–155):
+  - A. DPS with the repo's default step sizes, on 3 tasks × 3 test sets plus original CelebA.
+  - B. A new diagnostic task `nonlinear_dps` that copies the DPS repo's operator, run with ours (matched and mismatched priors), DPS and DMPlug.
+  - C. Ours on original CelebA inpainting: no x0 clipping, lr 0.05, 2000 iterations, trailing timesteps.
+  - D. DiT latent prior: lr 0.2, and 1000 iterations.
+- **Code:**
+  - `wp.make_task("nonlinear_dps")`.
+  - `run.py`: `--lr`, `--noclip`, `--spacing`; snapshots now follow `--iters`.
+  - `latent.py`: `--lr`, `--tag`.
+  - Defaults are unchanged.
+- **Diagnostics done** (25 cells × 20 images, arrays 5418938/5418939):
+  - **A. DPS with the repo's default step sizes (0.5 / 0.3):**
+    - DPS drops 0.7–2.7 dB in 8 of 9 cells.
+    - Ours then beats DPS in 9 of 9 cells (+0.2 to +3.2), and the LSUN margins are close to the paper's.
+    - Table 17 at 3000 NFE: ours 29.09 > DPS 28.92.
+  - **B. `nonlinear_dps` operator:**
+    - Ours: 24.71 / 23.04 / 21.32 [25.21 / 22.67 / 20.88]; ours with a mismatched prior: 24.36 / 22.34 [24.59 / 22.34].
+    - DMPlug 23.95 [24.85]; DPS 24.49 / 22.32 / 20.44 [24.88 / 22.51 / 20.31].
+    - Mismatch cost 0.35 / 0.70 [0.62 / 0.33].
+    - So the paper most likely used the DPS repo's operator, which samples a new kernel on every call.
+  - **C. Faces, original CelebA, ours = 31.21:** no clipping +0.17, lr 0.05 −0.67, 2000 iterations +0.41, trailing −6.4. None explains the gap. With the repo-default DPS step, DPS is 3.1 dB below the paper and ours 2.6 dB below, which points to different test images.
+  - **D. DiT:** lr 0.2 gives +1.5 dB and 1000 iterations +1.7 dB; DiT is not converged at lr 0.1 / 500 iterations.
+- **README:** new section "Where the gaps come from", plus a pointer from the short answer. The main tables are unchanged. Not pushed.
+- **Possible 100-image confirmation (not run):** repo-default DPS on the 9 main cells, the full `nonlinear_dps` set and DiT with lr 0.2. About 19 GPU-h.
+
+## 2026-11-18 — Gap diagnostics confirmed on 100 images
+- **Runs:**
+  - Arrays 5432888 (cells 131–149 and 156–161, 100 images each) and 5432889 (cells 154 and 162, DiT lr 0.2), all COMPLETED.
+  - The diagnostics total 32 settings, 2,800 images and 16.5 GPU-h. The whole project is now 160 settings, 15,440 images and 94.5 GPU-h.
+- **DPS with the repo's default step sizes:**
+  - Ours beats DPS in 9 of 9 cells (+0.47 to +3.07) [paper +0.78 to +4.45]. On LSUN the margins are within 0.6 dB of the paper's.
+  - Table 17: ours at 1000 iterations, 29.18, beats DPS at 28.71.
+  - On original CelebA, DPS gives 29.48 [31.98] and ours 31.23 [33.78]: both are 2.5 dB below the paper, i.e. a face-image offset.
+- **`nonlinear_dps`:** the mismatch cost matches the paper within about 0.4 dB in 6 of 6 cases. Bedroom and Church absolute values are within 0.2 dB for ours and DPS; faces are about 1 dB low.
+- **DiT with lr 0.2:** inpainting +1.27 (26.54 [28.44]), deblurring +0.18 (23.84 [26.48]). This is only partly explained.
+- **README:**
+  - "Where the gaps come from" rewritten with the 100-image numbers.
+  - Verdict rows changed for E4 (mismatch, absolute, vs DPS), E11 and E12.
+  - The run table has a diagnostics row; the totals and per-method GPU-h were updated.
+- **Pushed** on the user's go ("推送").

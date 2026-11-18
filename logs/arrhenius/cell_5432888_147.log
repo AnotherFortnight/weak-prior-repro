@@ -1,0 +1,89 @@
+cell 147: dps --task nonlinear_dps --target bedroom --zeta 0.3 --n 100 --batch 25 on n48
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-bedroom-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-bedroom-256'.
+An error occurred while trying to fetch google/ddpm-bedroom-256: google/ddpm-bedroom-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 20: PSNR 20.87 SSIM 0.546 LPIPS(alex/vgg) 0.422/0.412 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 21: PSNR 27.47 SSIM 0.750 LPIPS(alex/vgg) 0.269/0.305 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 22: PSNR 22.16 SSIM 0.647 LPIPS(alex/vgg) 0.342/0.381 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 23: PSNR 20.61 SSIM 0.565 LPIPS(alex/vgg) 0.414/0.428 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 24: PSNR 24.03 SSIM 0.725 LPIPS(alex/vgg) 0.275/0.292 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 25: PSNR 24.58 SSIM 0.673 LPIPS(alex/vgg) 0.331/0.381 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 26: PSNR 20.29 SSIM 0.531 LPIPS(alex/vgg) 0.402/0.409 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 27: PSNR 22.64 SSIM 0.636 LPIPS(alex/vgg) 0.286/0.360 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 28: PSNR 28.84 SSIM 0.807 LPIPS(alex/vgg) 0.259/0.283 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 29: PSNR 23.71 SSIM 0.606 LPIPS(alex/vgg) 0.292/0.363 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 30: PSNR 24.60 SSIM 0.739 LPIPS(alex/vgg) 0.199/0.298 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 31: PSNR 22.18 SSIM 0.476 LPIPS(alex/vgg) 0.415/0.404 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 32: PSNR 20.95 SSIM 0.621 LPIPS(alex/vgg) 0.433/0.449 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 33: PSNR 23.33 SSIM 0.716 LPIPS(alex/vgg) 0.303/0.303 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 34: PSNR 23.66 SSIM 0.684 LPIPS(alex/vgg) 0.259/0.324 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 35: PSNR 25.36 SSIM 0.647 LPIPS(alex/vgg) 0.418/0.426 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 36: PSNR 23.90 SSIM 0.560 LPIPS(alex/vgg) 0.402/0.424 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 37: PSNR 22.97 SSIM 0.685 LPIPS(alex/vgg) 0.276/0.353 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 38: PSNR 20.07 SSIM 0.461 LPIPS(alex/vgg) 0.537/0.528 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 39: PSNR 15.60 SSIM 0.421 LPIPS(alex/vgg) 0.357/0.405 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 40: PSNR 25.52 SSIM 0.662 LPIPS(alex/vgg) 0.317/0.375 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 41: PSNR 20.96 SSIM 0.601 LPIPS(alex/vgg) 0.363/0.381 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 42: PSNR 23.22 SSIM 0.656 LPIPS(alex/vgg) 0.273/0.334 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 43: PSNR 19.63 SSIM 0.495 LPIPS(alex/vgg) 0.411/0.445 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 44: PSNR 20.50 SSIM 0.557 LPIPS(alex/vgg) 0.303/0.361 iter 999 | 11s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 45: PSNR 21.89 SSIM 0.715 LPIPS(alex/vgg) 0.198/0.285 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 46: PSNR 21.95 SSIM 0.611 LPIPS(alex/vgg) 0.384/0.354 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 47: PSNR 21.92 SSIM 0.618 LPIPS(alex/vgg) 0.237/0.283 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 48: PSNR 21.64 SSIM 0.582 LPIPS(alex/vgg) 0.511/0.495 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 49: PSNR 17.12 SSIM 0.301 LPIPS(alex/vgg) 0.603/0.550 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 50: PSNR 18.47 SSIM 0.431 LPIPS(alex/vgg) 0.472/0.425 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 51: PSNR 21.34 SSIM 0.632 LPIPS(alex/vgg) 0.361/0.395 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 52: PSNR 29.59 SSIM 0.792 LPIPS(alex/vgg) 0.295/0.299 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 53: PSNR 24.43 SSIM 0.706 LPIPS(alex/vgg) 0.297/0.334 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 54: PSNR 23.75 SSIM 0.737 LPIPS(alex/vgg) 0.227/0.252 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 55: PSNR 23.86 SSIM 0.740 LPIPS(alex/vgg) 0.190/0.279 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 56: PSNR 20.77 SSIM 0.597 LPIPS(alex/vgg) 0.486/0.454 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 57: PSNR 22.80 SSIM 0.638 LPIPS(alex/vgg) 0.317/0.357 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 58: PSNR 18.85 SSIM 0.531 LPIPS(alex/vgg) 0.391/0.434 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 59: PSNR 27.68 SSIM 0.763 LPIPS(alex/vgg) 0.287/0.293 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 60: PSNR 20.23 SSIM 0.546 LPIPS(alex/vgg) 0.421/0.448 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 61: PSNR 23.04 SSIM 0.659 LPIPS(alex/vgg) 0.293/0.359 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 62: PSNR 22.96 SSIM 0.401 LPIPS(alex/vgg) 0.567/0.510 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 63: PSNR 23.90 SSIM 0.669 LPIPS(alex/vgg) 0.238/0.312 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 64: PSNR 24.05 SSIM 0.657 LPIPS(alex/vgg) 0.348/0.382 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 65: PSNR 25.01 SSIM 0.597 LPIPS(alex/vgg) 0.469/0.482 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 66: PSNR 21.68 SSIM 0.673 LPIPS(alex/vgg) 0.414/0.378 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 67: PSNR 20.30 SSIM 0.507 LPIPS(alex/vgg) 0.304/0.333 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 68: PSNR 22.42 SSIM 0.513 LPIPS(alex/vgg) 0.407/0.437 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 69: PSNR 23.41 SSIM 0.696 LPIPS(alex/vgg) 0.208/0.304 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 70: PSNR 20.27 SSIM 0.566 LPIPS(alex/vgg) 0.342/0.396 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 71: PSNR 22.29 SSIM 0.624 LPIPS(alex/vgg) 0.345/0.371 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 72: PSNR 19.97 SSIM 0.448 LPIPS(alex/vgg) 0.436/0.468 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 73: PSNR 26.45 SSIM 0.711 LPIPS(alex/vgg) 0.206/0.308 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 74: PSNR 23.03 SSIM 0.663 LPIPS(alex/vgg) 0.399/0.402 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 75: PSNR 20.02 SSIM 0.635 LPIPS(alex/vgg) 0.258/0.318 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 76: PSNR 26.85 SSIM 0.765 LPIPS(alex/vgg) 0.332/0.385 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 77: PSNR 21.29 SSIM 0.465 LPIPS(alex/vgg) 0.393/0.414 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 78: PSNR 22.52 SSIM 0.627 LPIPS(alex/vgg) 0.372/0.401 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 79: PSNR 20.40 SSIM 0.420 LPIPS(alex/vgg) 0.457/0.441 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 80: PSNR 19.59 SSIM 0.515 LPIPS(alex/vgg) 0.340/0.393 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 81: PSNR 23.07 SSIM 0.671 LPIPS(alex/vgg) 0.254/0.320 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 82: PSNR 18.51 SSIM 0.487 LPIPS(alex/vgg) 0.397/0.432 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 83: PSNR 22.42 SSIM 0.634 LPIPS(alex/vgg) 0.364/0.375 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 84: PSNR 25.78 SSIM 0.736 LPIPS(alex/vgg) 0.244/0.291 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 85: PSNR 26.68 SSIM 0.755 LPIPS(alex/vgg) 0.273/0.360 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 86: PSNR 26.67 SSIM 0.770 LPIPS(alex/vgg) 0.215/0.308 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 87: PSNR 21.10 SSIM 0.563 LPIPS(alex/vgg) 0.306/0.346 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 88: PSNR 22.42 SSIM 0.554 LPIPS(alex/vgg) 0.384/0.388 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 89: PSNR 18.08 SSIM 0.477 LPIPS(alex/vgg) 0.477/0.482 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 90: PSNR 24.04 SSIM 0.631 LPIPS(alex/vgg) 0.393/0.386 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 91: PSNR 25.79 SSIM 0.680 LPIPS(alex/vgg) 0.267/0.317 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 92: PSNR 24.94 SSIM 0.713 LPIPS(alex/vgg) 0.247/0.310 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 93: PSNR 25.07 SSIM 0.782 LPIPS(alex/vgg) 0.202/0.274 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 94: PSNR 24.50 SSIM 0.704 LPIPS(alex/vgg) 0.252/0.289 iter 999 | 9s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 95: PSNR 21.19 SSIM 0.604 LPIPS(alex/vgg) 0.470/0.490 iter 999 | 27s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 96: PSNR 21.18 SSIM 0.592 LPIPS(alex/vgg) 0.319/0.376 iter 999 | 27s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 97: PSNR 23.09 SSIM 0.689 LPIPS(alex/vgg) 0.223/0.283 iter 999 | 27s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 98: PSNR 24.22 SSIM 0.647 LPIPS(alex/vgg) 0.303/0.370 iter 999 | 27s
+dps_nonlinear_dps_bedroom_from-bedroom_sigma0.01_zeta0.3 img 99: PSNR 17.90 SSIM 0.407 LPIPS(alex/vgg) 0.374/0.430 iter 999 | 27s

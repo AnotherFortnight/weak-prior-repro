@@ -1,0 +1,89 @@
+cell 140: dps --task gauss --target church --zeta 0.3 --n 100 --batch 25 on n418
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-church-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-church-256'.
+An error occurred while trying to fetch google/ddpm-church-256: google/ddpm-church-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 20: PSNR 18.22 SSIM 0.476 LPIPS(alex/vgg) 0.247/0.305 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 21: PSNR 18.72 SSIM 0.489 LPIPS(alex/vgg) 0.246/0.357 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 22: PSNR 19.08 SSIM 0.434 LPIPS(alex/vgg) 0.387/0.450 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 23: PSNR 16.79 SSIM 0.411 LPIPS(alex/vgg) 0.274/0.342 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 24: PSNR 23.90 SSIM 0.589 LPIPS(alex/vgg) 0.241/0.376 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 25: PSNR 23.87 SSIM 0.549 LPIPS(alex/vgg) 0.222/0.333 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 26: PSNR 20.74 SSIM 0.528 LPIPS(alex/vgg) 0.156/0.270 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 27: PSNR 19.59 SSIM 0.429 LPIPS(alex/vgg) 0.265/0.374 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 28: PSNR 18.62 SSIM 0.497 LPIPS(alex/vgg) 0.158/0.233 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 29: PSNR 18.24 SSIM 0.612 LPIPS(alex/vgg) 0.157/0.226 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 30: PSNR 19.34 SSIM 0.449 LPIPS(alex/vgg) 0.308/0.392 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 31: PSNR 19.39 SSIM 0.494 LPIPS(alex/vgg) 0.176/0.286 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 32: PSNR 19.59 SSIM 0.489 LPIPS(alex/vgg) 0.340/0.407 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 33: PSNR 14.29 SSIM 0.222 LPIPS(alex/vgg) 0.348/0.378 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 34: PSNR 20.84 SSIM 0.486 LPIPS(alex/vgg) 0.382/0.490 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 35: PSNR 17.20 SSIM 0.558 LPIPS(alex/vgg) 0.207/0.364 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 36: PSNR 22.51 SSIM 0.633 LPIPS(alex/vgg) 0.178/0.288 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 37: PSNR 19.18 SSIM 0.483 LPIPS(alex/vgg) 0.323/0.384 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 38: PSNR 17.29 SSIM 0.430 LPIPS(alex/vgg) 0.255/0.366 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 39: PSNR 17.97 SSIM 0.605 LPIPS(alex/vgg) 0.146/0.260 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 40: PSNR 20.87 SSIM 0.602 LPIPS(alex/vgg) 0.216/0.261 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 41: PSNR 16.99 SSIM 0.378 LPIPS(alex/vgg) 0.277/0.366 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 42: PSNR 21.89 SSIM 0.530 LPIPS(alex/vgg) 0.263/0.412 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 43: PSNR 28.91 SSIM 0.803 LPIPS(alex/vgg) 0.161/0.247 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 44: PSNR 22.31 SSIM 0.497 LPIPS(alex/vgg) 0.316/0.413 iter 999 | 9s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 45: PSNR 19.42 SSIM 0.307 LPIPS(alex/vgg) 0.264/0.394 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 46: PSNR 21.80 SSIM 0.509 LPIPS(alex/vgg) 0.264/0.352 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 47: PSNR 15.90 SSIM 0.375 LPIPS(alex/vgg) 0.307/0.402 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 48: PSNR 22.16 SSIM 0.675 LPIPS(alex/vgg) 0.190/0.267 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 49: PSNR 19.72 SSIM 0.485 LPIPS(alex/vgg) 0.196/0.331 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 50: PSNR 21.05 SSIM 0.507 LPIPS(alex/vgg) 0.288/0.381 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 51: PSNR 18.61 SSIM 0.514 LPIPS(alex/vgg) 0.280/0.395 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 52: PSNR 19.69 SSIM 0.587 LPIPS(alex/vgg) 0.221/0.276 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 53: PSNR 20.69 SSIM 0.545 LPIPS(alex/vgg) 0.261/0.334 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 54: PSNR 21.32 SSIM 0.589 LPIPS(alex/vgg) 0.216/0.294 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 55: PSNR 14.94 SSIM 0.289 LPIPS(alex/vgg) 0.353/0.430 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 56: PSNR 18.76 SSIM 0.305 LPIPS(alex/vgg) 0.333/0.378 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 57: PSNR 21.99 SSIM 0.795 LPIPS(alex/vgg) 0.084/0.168 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 58: PSNR 19.37 SSIM 0.466 LPIPS(alex/vgg) 0.251/0.350 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 59: PSNR 20.48 SSIM 0.724 LPIPS(alex/vgg) 0.132/0.213 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 60: PSNR 22.62 SSIM 0.673 LPIPS(alex/vgg) 0.126/0.215 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 61: PSNR 16.15 SSIM 0.257 LPIPS(alex/vgg) 0.544/0.546 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 62: PSNR 21.62 SSIM 0.661 LPIPS(alex/vgg) 0.135/0.238 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 63: PSNR 20.90 SSIM 0.434 LPIPS(alex/vgg) 0.289/0.415 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 64: PSNR 21.66 SSIM 0.645 LPIPS(alex/vgg) 0.118/0.200 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 65: PSNR 21.08 SSIM 0.539 LPIPS(alex/vgg) 0.207/0.310 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 66: PSNR 18.57 SSIM 0.547 LPIPS(alex/vgg) 0.199/0.284 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 67: PSNR 17.70 SSIM 0.356 LPIPS(alex/vgg) 0.286/0.333 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 68: PSNR 14.82 SSIM 0.337 LPIPS(alex/vgg) 0.299/0.418 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 69: PSNR 19.11 SSIM 0.404 LPIPS(alex/vgg) 0.219/0.317 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 70: PSNR 20.98 SSIM 0.560 LPIPS(alex/vgg) 0.198/0.286 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 71: PSNR 14.56 SSIM 0.363 LPIPS(alex/vgg) 0.288/0.413 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 72: PSNR 24.31 SSIM 0.553 LPIPS(alex/vgg) 0.231/0.346 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 73: PSNR 19.82 SSIM 0.496 LPIPS(alex/vgg) 0.228/0.298 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 74: PSNR 21.92 SSIM 0.528 LPIPS(alex/vgg) 0.223/0.351 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 75: PSNR 18.08 SSIM 0.460 LPIPS(alex/vgg) 0.251/0.370 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 76: PSNR 22.98 SSIM 0.521 LPIPS(alex/vgg) 0.296/0.389 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 77: PSNR 21.52 SSIM 0.522 LPIPS(alex/vgg) 0.250/0.312 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 78: PSNR 17.23 SSIM 0.317 LPIPS(alex/vgg) 0.354/0.434 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 79: PSNR 18.81 SSIM 0.396 LPIPS(alex/vgg) 0.355/0.402 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 80: PSNR 14.58 SSIM 0.439 LPIPS(alex/vgg) 0.214/0.331 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 81: PSNR 18.87 SSIM 0.505 LPIPS(alex/vgg) 0.203/0.280 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 82: PSNR 13.63 SSIM 0.241 LPIPS(alex/vgg) 0.397/0.424 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 83: PSNR 20.10 SSIM 0.526 LPIPS(alex/vgg) 0.251/0.346 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 84: PSNR 19.81 SSIM 0.542 LPIPS(alex/vgg) 0.152/0.264 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 85: PSNR 20.56 SSIM 0.547 LPIPS(alex/vgg) 0.191/0.316 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 86: PSNR 18.50 SSIM 0.543 LPIPS(alex/vgg) 0.309/0.381 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 87: PSNR 17.41 SSIM 0.371 LPIPS(alex/vgg) 0.248/0.342 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 88: PSNR 22.69 SSIM 0.704 LPIPS(alex/vgg) 0.188/0.308 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 89: PSNR 18.27 SSIM 0.409 LPIPS(alex/vgg) 0.278/0.402 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 90: PSNR 21.10 SSIM 0.490 LPIPS(alex/vgg) 0.216/0.316 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 91: PSNR 21.86 SSIM 0.390 LPIPS(alex/vgg) 0.250/0.397 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 92: PSNR 19.37 SSIM 0.460 LPIPS(alex/vgg) 0.285/0.329 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 93: PSNR 20.10 SSIM 0.383 LPIPS(alex/vgg) 0.281/0.373 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 94: PSNR 26.20 SSIM 0.712 LPIPS(alex/vgg) 0.247/0.288 iter 999 | 7s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 95: PSNR 16.91 SSIM 0.279 LPIPS(alex/vgg) 0.305/0.402 iter 999 | 24s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 96: PSNR 18.72 SSIM 0.516 LPIPS(alex/vgg) 0.267/0.323 iter 999 | 24s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 97: PSNR 19.64 SSIM 0.564 LPIPS(alex/vgg) 0.198/0.273 iter 999 | 24s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 98: PSNR 19.61 SSIM 0.551 LPIPS(alex/vgg) 0.162/0.291 iter 999 | 24s
+dps_gauss_church_from-church_sigma0.01_zeta0.3 img 99: PSNR 22.72 SSIM 0.622 LPIPS(alex/vgg) 0.142/0.259 iter 999 | 24s

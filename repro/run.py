@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import wp  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TASKS = ["inpaint", "sr4", "gauss", "sr16", "box0.3", "box0.4", "box0.5", "box0.6", "nonlinear"]  # append only: the index sets the seeds
+TASKS = ["inpaint", "sr4", "gauss", "sr16", "box0.3", "box0.4", "box0.5", "box0.6", "nonlinear", "nonlinear_dps"]  # append only: the index sets the seeds
 MAIN_RULE = {"ino": "htk5", "dmplug": "wmv", "dps": "dps"}
 
 
@@ -65,12 +65,16 @@ def main():
     p.add_argument("--iters", type=int, default=1000)
     p.add_argument("--zeta", type=float, default=1.0)
     p.add_argument("--tag", default="")
+    p.add_argument("--lr", type=float, help="diagnostic: override the Table 19 learning rate (name it with --tag)")
+    p.add_argument("--noclip", action="store_true", help="diagnostic: no x0 clipping inside the DDIM generator")
+    p.add_argument("--spacing", default="leading", choices=["leading", "trailing"], help="diagnostic: DDIM timesteps")
     p.add_argument("--rep", type=int, help="DPS only: independent sampling run r (same measurement), for Table 17")
     p.add_argument("--batch", type=int, default=1, help="images per GPU pass (about 4.3 GB each); DMPlug runs 1")
     a = p.parse_args()
 
     prior = a.prior or a.target
-    lr, hfrac = wp.TASK_HP[a.task]
+    lr, hfrac = wp.TASK_HP["nonlinear" if a.task == "nonlinear_dps" else a.task]
+    lr = a.lr or lr
     opt = a.opt
     if a.method == "dmplug":                     # DMPlug defaults (Wang et al. 2024, App. D.2)
         opt, lr, hfrac = "adam", 0.01, 0.0
@@ -97,7 +101,8 @@ def main():
                             [999] * len(idx))}
         else:
             outs, log = wp.ino(model, task, gt, seeds, iters=a.iters, lr=lr, opt=opt, holdout=hfrac,
-                               stop_on_wmv=a.method == "dmplug")
+                               stop_on_wmv=a.method == "dmplug", clip=not a.noclip, spacing=a.spacing,
+                               snaps=(0, 4, 9, 99, a.iters - 1))
         torch.cuda.synchronize()
         info = {"seconds": (time.time() - t0) / len(idx),          # per image (batch time / batch size)
                 "peak_mib": torch.cuda.max_memory_allocated() / 2 ** 20,   # whole batch

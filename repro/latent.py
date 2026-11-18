@@ -146,10 +146,12 @@ def main():
     p.add_argument("--n", type=int, default=5)
     p.add_argument("--iters", type=int, default=500)
     p.add_argument("--batch", type=int, default=1)
+    p.add_argument("--lr", type=float, help="diagnostic: override the learning rate (name it with --tag)")
+    p.add_argument("--tag", default="")
     a = p.parse_args()
     model = a.model if a.method == "ino" else "sd21"
-    lr, hfrac = LR[model], wp.TASK_HP[a.task][1]
-    name = f"{a.method}_{a.task}_{a.target}_from-{model}_sigma0.01"
+    lr, hfrac = a.lr or LR[model], wp.TASK_HP[a.task][1]
+    name = f"{a.method}_{a.task}_{a.target}_from-{model}_sigma0.01" + (f"_{a.tag}" if a.tag else "")
     out = os.path.join(ROOT, "results", "runs", name)
     os.makedirs(out, exist_ok=True)
     with open(os.path.join(out, "config.json"), "w") as f:

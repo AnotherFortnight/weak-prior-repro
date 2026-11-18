@@ -1,0 +1,29 @@
+cell 132: dps --task inpaint --target bedroom --zeta 0.5 --n 20 --batch 20 on n552
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-bedroom-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-bedroom-256'.
+An error occurred while trying to fetch google/ddpm-bedroom-256: google/ddpm-bedroom-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 0: PSNR 21.78 SSIM 0.592 LPIPS(alex/vgg) 0.325/0.384 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 1: PSNR 24.12 SSIM 0.707 LPIPS(alex/vgg) 0.227/0.318 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 2: PSNR 25.57 SSIM 0.768 LPIPS(alex/vgg) 0.173/0.242 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 3: PSNR 24.61 SSIM 0.760 LPIPS(alex/vgg) 0.178/0.259 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 4: PSNR 29.27 SSIM 0.868 LPIPS(alex/vgg) 0.076/0.181 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 5: PSNR 27.54 SSIM 0.889 LPIPS(alex/vgg) 0.112/0.200 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 6: PSNR 21.18 SSIM 0.572 LPIPS(alex/vgg) 0.313/0.328 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 7: PSNR 29.07 SSIM 0.813 LPIPS(alex/vgg) 0.131/0.212 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 8: PSNR 28.00 SSIM 0.752 LPIPS(alex/vgg) 0.207/0.273 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 9: PSNR 35.12 SSIM 0.940 LPIPS(alex/vgg) 0.079/0.161 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 10: PSNR 28.65 SSIM 0.903 LPIPS(alex/vgg) 0.112/0.191 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 11: PSNR 26.36 SSIM 0.814 LPIPS(alex/vgg) 0.116/0.216 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 12: PSNR 29.23 SSIM 0.875 LPIPS(alex/vgg) 0.105/0.190 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 13: PSNR 28.13 SSIM 0.872 LPIPS(alex/vgg) 0.252/0.209 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 14: PSNR 23.89 SSIM 0.701 LPIPS(alex/vgg) 0.211/0.291 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 15: PSNR 28.56 SSIM 0.825 LPIPS(alex/vgg) 0.147/0.241 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 16: PSNR 26.37 SSIM 0.818 LPIPS(alex/vgg) 0.127/0.210 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 17: PSNR 29.56 SSIM 0.859 LPIPS(alex/vgg) 0.191/0.233 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 18: PSNR 28.02 SSIM 0.859 LPIPS(alex/vgg) 0.186/0.219 iter 999 | 9s
+dps_inpaint_bedroom_from-bedroom_sigma0.01_zeta0.5 img 19: PSNR 21.66 SSIM 0.530 LPIPS(alex/vgg) 0.424/0.457 iter 999 | 9s

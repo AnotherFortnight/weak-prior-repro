@@ -1,0 +1,37 @@
+cell 155: latent ino --model dit --task inpaint --iters 1000 --tag it1000 --n 20 --batch 4 on n569
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/facebook/DiT-XL-2-512: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'facebook/DiT-XL-2-512'.
+An error occurred while trying to fetch facebook/DiT-XL-2-512: facebook/DiT-XL-2-512 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/facebook/DiT-XL-2-512: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'facebook/DiT-XL-2-512'.
+An error occurred while trying to fetch facebook/DiT-XL-2-512: facebook/DiT-XL-2-512 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 0: PSNR 35.86 SSIM 0.942 LPIPS(alex/vgg) 0.215/0.365 iter 989 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 1: PSNR 32.36 SSIM 0.895 LPIPS(alex/vgg) 0.170/0.316 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 2: PSNR 23.49 SSIM 0.545 LPIPS(alex/vgg) 0.548/0.428 iter 997 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 3: PSNR 26.28 SSIM 0.811 LPIPS(alex/vgg) 0.332/0.415 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 4: PSNR 30.34 SSIM 0.795 LPIPS(alex/vgg) 0.229/0.345 iter 985 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 5: PSNR 24.71 SSIM 0.761 LPIPS(alex/vgg) 0.197/0.289 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 6: PSNR 29.97 SSIM 0.779 LPIPS(alex/vgg) 0.241/0.365 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 7: PSNR 27.49 SSIM 0.860 LPIPS(alex/vgg) 0.180/0.314 iter 895 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 8: PSNR 30.27 SSIM 0.870 LPIPS(alex/vgg) 0.234/0.356 iter 993 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 9: PSNR 26.50 SSIM 0.808 LPIPS(alex/vgg) 0.305/0.365 iter 995 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 10: PSNR 28.06 SSIM 0.804 LPIPS(alex/vgg) 0.215/0.335 iter 991 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 11: PSNR 26.27 SSIM 0.657 LPIPS(alex/vgg) 0.335/0.460 iter 791 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 12: PSNR 26.23 SSIM 0.670 LPIPS(alex/vgg) 0.442/0.475 iter 997 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 13: PSNR 30.33 SSIM 0.813 LPIPS(alex/vgg) 0.368/0.402 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 14: PSNR 22.10 SSIM 0.455 LPIPS(alex/vgg) 0.502/0.540 iter 569 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 15: PSNR 16.98 SSIM 0.277 LPIPS(alex/vgg) 0.767/0.678 iter 418 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 16: PSNR 20.86 SSIM 0.502 LPIPS(alex/vgg) 0.516/0.534 iter 674 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 17: PSNR 28.49 SSIM 0.849 LPIPS(alex/vgg) 0.284/0.387 iter 998 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 18: PSNR 28.41 SSIM 0.771 LPIPS(alex/vgg) 0.180/0.280 iter 999 | 142s
+ino_inpaint_imagenet_from-dit_sigma0.01_it1000 img 19: PSNR 29.04 SSIM 0.712 LPIPS(alex/vgg) 0.313/0.358 iter 999 | 142s

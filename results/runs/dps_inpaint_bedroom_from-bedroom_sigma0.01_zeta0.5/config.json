@@ -1,0 +1,19 @@
+{
+ "method": "dps",
+ "task": "inpaint",
+ "target": "bedroom",
+ "prior": "bedroom",
+ "n": 100,
+ "start": 0,
+ "sigma": 0.01,
+ "opt": "adamsphere",
+ "iters": 1000,
+ "zeta": 0.5,
+ "tag": "",
+ "lr": 0.02,
+ "noclip": false,
+ "spacing": "leading",
+ "rep": null,
+ "batch": 25,
+ "holdout": 0.1
+}

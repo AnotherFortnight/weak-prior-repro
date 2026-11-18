@@ -131,6 +131,11 @@ def make_task(name, gt, seeds, sigma=0.01):
         ks = torch.stack([1.2 * torch.randn(512, 2, 2, generator=g) for g in gens]).to(DEV)  # generate_blur.py
         obs = torch.ones(B, 1, H, W, device=DEV)
         A = lambda x: blur_model().adaptKernel((x + 1) / 2, ks) * 2 - 1
+    elif name == "nonlinear_dps":               # diagnostic: the DPS repo's operator (third-party code, read for this):
+        kg = torch.Generator().manual_seed(int(seeds[0]) + 99991)   # a NEW kernel code on every call, output clamped
+        obs = torch.ones(B, 1, H, W, device=DEV)
+        A = lambda x: (blur_model().adaptKernel((x + 1) / 2, 1.2 * torch.randn(x.shape[0], 512, 2, 2, generator=kg)
+                                                .to(DEV)) * 2 - 1).clamp(-1, 1)
     else:
         raise ValueError(name)
     with torch.no_grad():

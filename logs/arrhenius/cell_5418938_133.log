@@ -1,0 +1,29 @@
+cell 133: dps --task inpaint --target church --zeta 0.5 --n 20 --batch 20 on n552
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-church-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-church-256'.
+An error occurred while trying to fetch google/ddpm-church-256: google/ddpm-church-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 0: PSNR 25.64 SSIM 0.779 LPIPS(alex/vgg) 0.161/0.212 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 1: PSNR 21.34 SSIM 0.571 LPIPS(alex/vgg) 0.432/0.350 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 2: PSNR 23.35 SSIM 0.742 LPIPS(alex/vgg) 0.164/0.272 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 3: PSNR 23.38 SSIM 0.711 LPIPS(alex/vgg) 0.238/0.327 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 4: PSNR 22.52 SSIM 0.772 LPIPS(alex/vgg) 0.105/0.176 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 5: PSNR 21.29 SSIM 0.600 LPIPS(alex/vgg) 0.238/0.341 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 6: PSNR 22.68 SSIM 0.700 LPIPS(alex/vgg) 0.122/0.234 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 7: PSNR 25.71 SSIM 0.753 LPIPS(alex/vgg) 0.167/0.248 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 8: PSNR 23.80 SSIM 0.754 LPIPS(alex/vgg) 0.129/0.255 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 9: PSNR 22.50 SSIM 0.743 LPIPS(alex/vgg) 0.104/0.187 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 10: PSNR 23.06 SSIM 0.768 LPIPS(alex/vgg) 0.131/0.200 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 11: PSNR 18.89 SSIM 0.414 LPIPS(alex/vgg) 0.438/0.464 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 12: PSNR 26.95 SSIM 0.782 LPIPS(alex/vgg) 0.140/0.226 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 13: PSNR 24.79 SSIM 0.757 LPIPS(alex/vgg) 0.146/0.225 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 14: PSNR 22.03 SSIM 0.666 LPIPS(alex/vgg) 0.202/0.307 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 15: PSNR 25.85 SSIM 0.759 LPIPS(alex/vgg) 0.190/0.260 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 16: PSNR 24.61 SSIM 0.728 LPIPS(alex/vgg) 0.220/0.272 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 17: PSNR 26.26 SSIM 0.855 LPIPS(alex/vgg) 0.137/0.212 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 18: PSNR 24.22 SSIM 0.694 LPIPS(alex/vgg) 0.206/0.268 iter 999 | 9s
+dps_inpaint_church_from-church_sigma0.01_zeta0.5 img 19: PSNR 23.96 SSIM 0.788 LPIPS(alex/vgg) 0.201/0.308 iter 999 | 9s

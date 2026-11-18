@@ -1,0 +1,29 @@
+cell 152: ino --task inpaint --target celeba178 --prior celeba --iters 2000 --tag it2000 --n 20 --batch 20 on n552
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-celebahq-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-celebahq-256'.
+An error occurred while trying to fetch google/ddpm-celebahq-256: google/ddpm-celebahq-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 0: PSNR 31.45 SSIM 0.865 LPIPS(alex/vgg) 0.135/0.198 iter 1201 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 1: PSNR 29.16 SSIM 0.861 LPIPS(alex/vgg) 0.069/0.159 iter 1759 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 2: PSNR 30.08 SSIM 0.910 LPIPS(alex/vgg) 0.076/0.138 iter 1329 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 3: PSNR 33.27 SSIM 0.937 LPIPS(alex/vgg) 0.053/0.138 iter 1626 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 4: PSNR 34.05 SSIM 0.934 LPIPS(alex/vgg) 0.045/0.116 iter 1953 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 5: PSNR 32.26 SSIM 0.886 LPIPS(alex/vgg) 0.073/0.151 iter 1996 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 6: PSNR 33.99 SSIM 0.944 LPIPS(alex/vgg) 0.042/0.108 iter 1968 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 7: PSNR 31.53 SSIM 0.921 LPIPS(alex/vgg) 0.051/0.119 iter 1540 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 8: PSNR 31.63 SSIM 0.909 LPIPS(alex/vgg) 0.065/0.122 iter 1338 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 9: PSNR 28.13 SSIM 0.826 LPIPS(alex/vgg) 0.187/0.237 iter 668 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 10: PSNR 28.49 SSIM 0.830 LPIPS(alex/vgg) 0.148/0.229 iter 835 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 11: PSNR 32.29 SSIM 0.930 LPIPS(alex/vgg) 0.042/0.130 iter 1982 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 12: PSNR 31.29 SSIM 0.879 LPIPS(alex/vgg) 0.088/0.196 iter 1319 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 13: PSNR 32.17 SSIM 0.927 LPIPS(alex/vgg) 0.058/0.135 iter 1607 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 14: PSNR 29.30 SSIM 0.876 LPIPS(alex/vgg) 0.110/0.223 iter 1102 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 15: PSNR 32.53 SSIM 0.861 LPIPS(alex/vgg) 0.077/0.202 iter 1985 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 16: PSNR 30.15 SSIM 0.880 LPIPS(alex/vgg) 0.076/0.180 iter 1072 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 17: PSNR 29.50 SSIM 0.881 LPIPS(alex/vgg) 0.082/0.207 iter 1490 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 18: PSNR 34.81 SSIM 0.885 LPIPS(alex/vgg) 0.061/0.135 iter 1995 | 38s
+ino_inpaint_celeba178_from-celeba_sigma0.01_it2000 img 19: PSNR 36.16 SSIM 0.930 LPIPS(alex/vgg) 0.124/0.149 iter 1970 | 38s

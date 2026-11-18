@@ -11,16 +11,18 @@ Deep Learning course project. We reproduce Jia et al., "Weak Diffusion Priors Ca
 | E1 identifiability | Table 1 | reproduced |
 | E2 autocorrelation of 3-step samples | Tables 2, 14 | reproduced |
 | E3 posterior concentration (toy) | Fig. 2, Thm 3.2 | reproduced |
-| E4 a mismatched prior costs little | Tables 3, 6 | **reproduced** for inpainting, SR and Gaussian deblurring (≤ 0.4 dB from the paper in all 18 cases); nonlinear deblurring: the cost is 3–7× the paper's, but stays small enough that ours still beats the paper's own numbers |
-| E4 absolute PSNR | Tables 3, 6 | LSUN close (−0.1 to −1.1 dB); faces **not reproduced** (−2.3 to −4.6 dB) |
-| E4 ours beats DPS | Tables 3, 6 | partly: SR and both deblurring tasks yes, random inpainting no |
+| E4 a mismatched prior costs little | Tables 3, 6 | **reproduced** for all four tasks: within about 0.4 dB of the paper in all 24 cases, with nonlinear deblurring run through the official DPS blur operator (see [Where the gaps come from](#where-the-gaps-come-from)) |
+| E4 absolute PSNR | Tables 3, 6 | LSUN close (−0.1 to −1.1 dB); faces 2.3–4.6 dB lower, most likely because the paper used other face images: on original CelebA, ours and DPS are both 2.5 dB below the paper |
+| E4 ours beats DPS | Tables 3, 6 | **reproduced with DPS's official default step sizes**: ours wins 9 of 9, and on LSUN the margins are within 0.6 dB of the paper's. With the DPS paper's step size 1 (our main tables), DPS wins random inpainting |
 | E5 ours ≥ DMPlug | Tables 4, 7 | reproduced: 11 of 12 [paper: 10 of 12] |
 | E6 HoldoutTopK beats variance-based stopping | Table 5 | reproduced |
 | E7 weak priors fail on large boxes | Table 12, Figs. 3, 4, 15 | reproduced, smaller effect |
 | E8 noise sensitivity | Table 16 | pattern reproduced |
 | E10 DPS with a mismatched prior | Table 15 | reproduced (with DPS step size 0.3; the DPS paper's 1.0 diverges here) |
-| E11 matched compute | Table 17 | not reproduced on faces: DPS stays ahead at equal cost |
-| E12 latent priors (SD 2.1, DiT) on ImageNet | Table 13, Sec. 4.4 | reproduced: about as good as DPS, far above DSG; our DiT is 2.8–3.2 dB below the paper, SD 2.1 matches |
+| E11 matched compute | Table 17 | reproduced with DPS's default step size: at 3000 network evaluations ours 29.18 > DPS 28.71 [34.13 > 32.36]; not with step size 1 |
+| E12 latent priors (SD 2.1, DiT) on ImageNet | Table 13, Sec. 4.4 | reproduced: about as good as DPS, far above DSG. SD 2.1 matches the paper; our DiT stays 1.9–2.6 dB below it even with a larger learning rate |
+
+Most remaining gaps come from two settings of the DPS code that the paper's baselines most likely used, and from the face test images; see [Where the gaps come from](#where-the-gaps-come-from).
 
 Below, each experiment lists the paper's setting next to ours, the steps, and our numbers next to the paper's. All tables read **ours [paper]**; PSNR is in dB. Full tables with LPIPS, SSIM and standard errors: [`results/summary.md`](results/summary.md). Standard errors of a 100-image mean are about 0.2–0.4 dB.
 
@@ -58,7 +60,7 @@ Implementation details: [`repro/README.md`](repro/README.md).
 
 ## How one run works
 
-One **setting** = method × task × test set × prior. Each setting runs on the same 100 test images; 128 settings in total (one per line of [`repro/cluster/cells.txt`](repro/cluster/cells.txt)), about 78 GPU-hours.
+One **setting** = method × task × test set × prior. Each setting runs on the same 100 test images; 160 settings in total (one per line of [`repro/cluster/cells.txt`](repro/cluster/cells.txt)), about 95 GPU-hours.
 
 For each test image, ours (INO):
 1. Take the test image x* (3×256×256, values in [−1, 1]).
@@ -79,7 +81,7 @@ Ours at iterations 1, 5, 10, 100 and 1000, then the HoldoutTopK output, the grou
 
 ## What was run and how long it took
 
-Every setting below ran on all 100 test images (except two 20-image step-size checks; 12,640 reconstructions in total), on NAISS Arrhenius GH200 GPUs. GPU-hours are the sum of the per-image run times stored in `results/runs/*/NNN.json`.
+Every setting below ran on all 100 test images (except a few 20-image checks; 15,440 reconstructions in total), on NAISS Arrhenius GH200 GPUs. GPU-hours are the sum of the per-image run times stored in `results/runs/*/NNN.json`.
 
 | experiment | settings | images | GPU-hours |
 |---|---|---|---|
@@ -95,10 +97,11 @@ Every setting below ran on all 100 test images (except two 20-image step-size ch
 | DPS with step size 1 and the step-size check (E10, side columns) | 11 | 940 | 2.4 |
 | repeated DPS runs for matched compute (E11) | 5 | 500 | 0.9 |
 | latent priors on ImageNet 512 (E12): ours 4 (2 priors × 2 tasks), DPS 2, DSG 2 | 8 | 800 | 12.0 |
-| **total** | **128** | **12,640** | **77.9** |
+| diagnostics for the gaps ([Where the gaps come from](#where-the-gaps-come-from)) | 32 | 2,800 | 16.5 |
+| **total** | **160** | **15,440** | **94.5** |
 
 - The cluster accounting also counts start-up and compilation, about 2 % more.
-- By method: ours 39.9 GPU-hours (66 settings), DMPlug 24.3 (12), DPS 11.6 (48), DSG 2.1 (2).
+- By method: ours 50.7 GPU-hours (82 settings), DMPlug 26.9 (15), DPS 14.8 (61), DSG 2.1 (2).
 - E1–E3 need no reconstructions; each finishes in a few minutes.
 - Wall-clock: the settings ran in parallel as Slurm job arrays. The slowest single setting took 2 h 28 min in the main batch and 2 h 48 min in the nonlinear batch, so each batch finished in about 3 hours, not counting queue time. The later batches (E10, E11, the rest of E4) each took under 40 minutes, and E12 about 2 hours.
 
@@ -408,6 +411,58 @@ The paper writes "CelebA-HQ" but its tables say "CelebA", and the DMPlug paper, 
 ![Latent priors on ImageNet](results/figures/recon_latent_imagenet.png)
 
 The first two test images. Columns: measurement, DPS, DSG, ours with SD 2.1, ours with DiT, ground truth. DSG leaves visible artefacts (rows 1 and 3).
+
+## Where the gaps come from
+
+We tested one hypothesis per gap on the first 20 images of each setting, and then confirmed it on all 100. The numbers below are 100-image means. Two facts from the official DPS code (github.com/DPS2022/diffusion-posterior-sampling; third-party, not the paper's authors) turned out to matter:
+- **Step size.** Its default configs use ζ′ = 0.5 for inpainting and 0.3 for the other tasks. The DPS paper's appendix, which our main tables follow, says ζ′ = 1.
+- **Nonlinear blur.** Its nonlinear blur operator draws a **new random kernel on every call**, and clamps its output. So the measurement and every reconstruction step see different blurs.
+
+The paper says DPS and DMPlug were run "under their default configs", which points to this code.
+
+**1. Ours vs DPS (E4) and matched compute (E11): explained by the DPS step size.**
+
+With DPS's default step sizes, ours beats DPS in all 9 settings, as in the paper. On LSUN the margins are within 0.6 dB of the paper's.
+
+| task | ours − DPS, CelebA | Bedroom | Church |
+|---|---|---|---|
+| inpainting | +0.47 [+1.80] | +1.08 [+0.91] | +0.73 [+0.78] |
+| 4× SR | +2.90 [+4.45] | +3.07 [+3.64] | +2.58 [+2.81] |
+| Gaussian deblur | +1.13 [+2.43] | +1.59 [+1.34] | +1.72 [+1.77] |
+
+- DPS itself is then also closer to the paper on LSUN: inpainting 27.57 / 23.17 [27.97 / 24.15], SR 22.67 / 19.46 [22.95 / 20.28], deblurring 23.57 / 19.75 [23.94 / 20.66].
+- With ζ′ = 1 (the main tables), DPS is up to 2.6 dB stronger and wins random inpainting.
+- Matched compute (Table 17): at 3000 network evaluations ours reaches 29.18 and DPS 28.71, so ours overtakes DPS as in the paper [34.13 vs 32.36]. At about 1000 evaluations, DPS is still ahead: 28.71 vs 28.43 [32.27 vs 31.86].
+
+**2. Nonlinear deblurring (E4, E5): explained by the DPS blur operator.**
+
+With the official DPS operator, the cost of a mismatched prior matches the paper within about 0.4 dB in all 6 cases. With our fixed kernel it was 3–7 times larger.
+
+| test set | ours, matched prior | cost of other prior 1 | cost of other prior 2 | ours − DPS | ours − DMPlug |
+|---|---|---|---|---|---|
+| CelebA | 23.90 [25.21] | Bedroom −0.21 [−0.62] | Church −0.48 [−0.48] | +0.03 [+0.33] | +0.44 [+0.36] |
+| Bedroom | 22.84 [22.67] | CelebA −0.44 [−0.33] | Church −0.06 [−0.08] | +0.28 [+0.16] | +0.80 [+0.46] |
+| Church | 20.76 [20.88] | CelebA −0.52 [−0.36] | Bedroom −0.16 [−0.09] | +0.75 [+0.57] | +1.05 [+0.40] |
+
+- On Bedroom and Church the absolute numbers now match the paper within 0.2 dB, for ours and DPS (22.56 / 20.01 [22.51 / 20.31]). DMPlug is within 0.8 dB.
+- On faces all three methods are about 1 dB below the paper (see point 3).
+- The paper most likely used this operator. Our fixed-kernel operator is the correct forward model and gives higher scores; our main tables keep it.
+
+**3. Faces (E4, E9): not our optimiser; most likely different test images.**
+
+- **The optimiser is not the cause.** On original CelebA inpainting (ours 31.21 on 20 images) we tried:
+  - no x̂₀ clipping: +0.17 dB
+  - learning rate 0.05: −0.67 dB
+  - 2000 iterations: +0.41 dB
+  - trailing timesteps: −6.4 dB, which also confirms our leading choice
+- **Both methods are low by the same amount.** With DPS's default step size, DPS on the same 100 faces gives 29.48 [31.98] and ours 31.23 [33.78]: both are 2.5 dB below the paper, and ours leads DPS by 1.75 [1.80].
+- **So the paper's face images are probably easier than ours.** We cannot check this: the paper does not list its images.
+
+**4. DiT latent prior (E12): only partly explained.**
+
+With learning rate 0.2 instead of 0.1, DiT gains 1.3 dB on inpainting (26.54 [28.44]) but only 0.2 dB on deblurring (23.84 [26.48]). It is still improving at the last iteration. It stays 1.9–2.6 dB below the paper and below our SD 2.1 run. The paper does not give DiT's number of sampling steps or other settings, so the cause is open.
+
+**Where to find these runs:** the diagnostic settings are cells 131–162 of `repro/cluster/cells.txt` (`run.py --zeta`, the task `nonlinear_dps`, and `--lr / --noclip / --spacing / --iters`). Their per-image results are in `results/runs/`. The main tables above are unchanged.
 
 ## Other numbers
 

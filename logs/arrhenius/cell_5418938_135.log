@@ -1,0 +1,29 @@
+cell 135: dps --task sr4 --target celeba --zeta 0.3 --n 20 --batch 20 on n66
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-celebahq-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-celebahq-256'.
+An error occurred while trying to fetch google/ddpm-celebahq-256: google/ddpm-celebahq-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 0: PSNR 26.84 SSIM 0.690 LPIPS(alex/vgg) 0.105/0.256 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 1: PSNR 24.18 SSIM 0.666 LPIPS(alex/vgg) 0.158/0.294 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 2: PSNR 25.91 SSIM 0.664 LPIPS(alex/vgg) 0.146/0.285 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 3: PSNR 24.60 SSIM 0.728 LPIPS(alex/vgg) 0.152/0.257 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 4: PSNR 27.81 SSIM 0.678 LPIPS(alex/vgg) 0.128/0.297 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 5: PSNR 26.56 SSIM 0.795 LPIPS(alex/vgg) 0.060/0.205 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 6: PSNR 25.55 SSIM 0.783 LPIPS(alex/vgg) 0.087/0.213 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 7: PSNR 25.42 SSIM 0.670 LPIPS(alex/vgg) 0.102/0.262 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 8: PSNR 26.60 SSIM 0.764 LPIPS(alex/vgg) 0.103/0.236 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 9: PSNR 27.24 SSIM 0.761 LPIPS(alex/vgg) 0.088/0.228 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 10: PSNR 26.37 SSIM 0.693 LPIPS(alex/vgg) 0.174/0.302 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 11: PSNR 22.04 SSIM 0.462 LPIPS(alex/vgg) 0.193/0.330 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 12: PSNR 21.98 SSIM 0.481 LPIPS(alex/vgg) 0.208/0.336 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 13: PSNR 24.60 SSIM 0.602 LPIPS(alex/vgg) 0.172/0.290 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 14: PSNR 28.75 SSIM 0.809 LPIPS(alex/vgg) 0.104/0.240 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 15: PSNR 28.64 SSIM 0.776 LPIPS(alex/vgg) 0.089/0.213 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 16: PSNR 27.24 SSIM 0.698 LPIPS(alex/vgg) 0.094/0.248 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 17: PSNR 24.06 SSIM 0.588 LPIPS(alex/vgg) 0.183/0.303 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 18: PSNR 26.23 SSIM 0.765 LPIPS(alex/vgg) 0.102/0.269 iter 999 | 9s
+dps_sr4_celeba_from-celeba_sigma0.01_zeta0.3 img 19: PSNR 23.92 SSIM 0.658 LPIPS(alex/vgg) 0.138/0.299 iter 999 | 9s

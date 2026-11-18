@@ -1,0 +1,14 @@
+{
+ "method": "ino",
+ "model": "dit",
+ "task": "inpaint",
+ "target": "imagenet",
+ "n": 20,
+ "iters": 1000,
+ "batch": 4,
+ "lr": 0.1,
+ "tag": "it1000",
+ "holdout": 0.1,
+ "scale": null,
+ "steps": 1000
+}

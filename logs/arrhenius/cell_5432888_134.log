@@ -1,0 +1,89 @@
+cell 134: dps --task inpaint --target celeba178 --prior celeba --zeta 0.5 --n 100 --batch 25 on n49
+Cannot initialize model with low cpu memory usage because `accelerate` was not found in the environment. Defaulting to `low_cpu_mem_usage=False`. It is strongly recommended to install `accelerate` for faster and less memory-intense model loading. You can do so with: 
+```
+pip install accelerate
+```
+.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/google/ddpm-celebahq-256: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'google/ddpm-celebahq-256'.
+An error occurred while trying to fetch google/ddpm-celebahq-256: google/ddpm-celebahq-256 does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 20: PSNR 30.18 SSIM 0.903 LPIPS(alex/vgg) 0.051/0.119 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 21: PSNR 29.44 SSIM 0.797 LPIPS(alex/vgg) 0.188/0.304 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 22: PSNR 31.90 SSIM 0.892 LPIPS(alex/vgg) 0.102/0.188 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 23: PSNR 30.23 SSIM 0.878 LPIPS(alex/vgg) 0.085/0.182 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 24: PSNR 28.34 SSIM 0.808 LPIPS(alex/vgg) 0.150/0.257 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 25: PSNR 28.39 SSIM 0.803 LPIPS(alex/vgg) 0.123/0.210 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 26: PSNR 28.71 SSIM 0.846 LPIPS(alex/vgg) 0.140/0.254 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 27: PSNR 32.14 SSIM 0.877 LPIPS(alex/vgg) 0.066/0.192 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 28: PSNR 29.05 SSIM 0.823 LPIPS(alex/vgg) 0.200/0.298 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 29: PSNR 32.32 SSIM 0.887 LPIPS(alex/vgg) 0.072/0.167 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 30: PSNR 30.82 SSIM 0.900 LPIPS(alex/vgg) 0.065/0.155 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 31: PSNR 30.10 SSIM 0.854 LPIPS(alex/vgg) 0.104/0.183 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 32: PSNR 28.69 SSIM 0.819 LPIPS(alex/vgg) 0.125/0.215 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 33: PSNR 30.95 SSIM 0.833 LPIPS(alex/vgg) 0.106/0.239 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 34: PSNR 28.28 SSIM 0.825 LPIPS(alex/vgg) 0.102/0.208 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 35: PSNR 29.81 SSIM 0.839 LPIPS(alex/vgg) 0.077/0.175 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 36: PSNR 29.86 SSIM 0.788 LPIPS(alex/vgg) 0.216/0.316 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 37: PSNR 31.39 SSIM 0.874 LPIPS(alex/vgg) 0.090/0.182 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 38: PSNR 36.00 SSIM 0.920 LPIPS(alex/vgg) 0.066/0.156 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 39: PSNR 28.63 SSIM 0.818 LPIPS(alex/vgg) 0.119/0.239 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 40: PSNR 31.37 SSIM 0.881 LPIPS(alex/vgg) 0.070/0.179 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 41: PSNR 27.90 SSIM 0.814 LPIPS(alex/vgg) 0.091/0.213 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 42: PSNR 27.25 SSIM 0.793 LPIPS(alex/vgg) 0.154/0.281 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 43: PSNR 29.66 SSIM 0.883 LPIPS(alex/vgg) 0.094/0.194 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 44: PSNR 28.25 SSIM 0.742 LPIPS(alex/vgg) 0.259/0.385 iter 999 | 8s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 45: PSNR 33.85 SSIM 0.846 LPIPS(alex/vgg) 0.147/0.235 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 46: PSNR 26.32 SSIM 0.775 LPIPS(alex/vgg) 0.209/0.300 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 47: PSNR 35.47 SSIM 0.935 LPIPS(alex/vgg) 0.061/0.160 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 48: PSNR 27.12 SSIM 0.716 LPIPS(alex/vgg) 0.244/0.313 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 49: PSNR 29.25 SSIM 0.786 LPIPS(alex/vgg) 0.168/0.264 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 50: PSNR 33.19 SSIM 0.866 LPIPS(alex/vgg) 0.130/0.230 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 51: PSNR 33.15 SSIM 0.892 LPIPS(alex/vgg) 0.110/0.195 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 52: PSNR 30.92 SSIM 0.910 LPIPS(alex/vgg) 0.068/0.151 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 53: PSNR 28.87 SSIM 0.813 LPIPS(alex/vgg) 0.125/0.243 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 54: PSNR 30.13 SSIM 0.863 LPIPS(alex/vgg) 0.078/0.166 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 55: PSNR 25.56 SSIM 0.696 LPIPS(alex/vgg) 0.206/0.305 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 56: PSNR 26.49 SSIM 0.819 LPIPS(alex/vgg) 0.138/0.276 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 57: PSNR 30.66 SSIM 0.872 LPIPS(alex/vgg) 0.111/0.231 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 58: PSNR 26.89 SSIM 0.765 LPIPS(alex/vgg) 0.147/0.255 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 59: PSNR 29.40 SSIM 0.842 LPIPS(alex/vgg) 0.070/0.176 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 60: PSNR 33.17 SSIM 0.893 LPIPS(alex/vgg) 0.160/0.320 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 61: PSNR 25.96 SSIM 0.723 LPIPS(alex/vgg) 0.169/0.277 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 62: PSNR 28.74 SSIM 0.845 LPIPS(alex/vgg) 0.119/0.222 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 63: PSNR 28.23 SSIM 0.808 LPIPS(alex/vgg) 0.131/0.244 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 64: PSNR 29.93 SSIM 0.829 LPIPS(alex/vgg) 0.090/0.205 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 65: PSNR 28.76 SSIM 0.839 LPIPS(alex/vgg) 0.076/0.194 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 66: PSNR 28.31 SSIM 0.851 LPIPS(alex/vgg) 0.105/0.233 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 67: PSNR 29.13 SSIM 0.852 LPIPS(alex/vgg) 0.132/0.241 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 68: PSNR 28.40 SSIM 0.804 LPIPS(alex/vgg) 0.114/0.211 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 69: PSNR 28.62 SSIM 0.830 LPIPS(alex/vgg) 0.090/0.160 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 70: PSNR 26.45 SSIM 0.722 LPIPS(alex/vgg) 0.173/0.304 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 71: PSNR 31.39 SSIM 0.855 LPIPS(alex/vgg) 0.075/0.167 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 72: PSNR 31.87 SSIM 0.875 LPIPS(alex/vgg) 0.097/0.196 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 73: PSNR 29.22 SSIM 0.831 LPIPS(alex/vgg) 0.122/0.232 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 74: PSNR 25.56 SSIM 0.745 LPIPS(alex/vgg) 0.247/0.346 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 75: PSNR 28.90 SSIM 0.825 LPIPS(alex/vgg) 0.086/0.194 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 76: PSNR 27.47 SSIM 0.788 LPIPS(alex/vgg) 0.127/0.258 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 77: PSNR 29.75 SSIM 0.845 LPIPS(alex/vgg) 0.077/0.194 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 78: PSNR 33.08 SSIM 0.879 LPIPS(alex/vgg) 0.082/0.178 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 79: PSNR 31.17 SSIM 0.886 LPIPS(alex/vgg) 0.075/0.180 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 80: PSNR 28.81 SSIM 0.813 LPIPS(alex/vgg) 0.143/0.285 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 81: PSNR 27.59 SSIM 0.733 LPIPS(alex/vgg) 0.144/0.266 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 82: PSNR 32.88 SSIM 0.914 LPIPS(alex/vgg) 0.064/0.136 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 83: PSNR 31.09 SSIM 0.812 LPIPS(alex/vgg) 0.178/0.291 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 84: PSNR 32.11 SSIM 0.891 LPIPS(alex/vgg) 0.107/0.179 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 85: PSNR 30.29 SSIM 0.887 LPIPS(alex/vgg) 0.093/0.175 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 86: PSNR 28.16 SSIM 0.826 LPIPS(alex/vgg) 0.114/0.228 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 87: PSNR 28.46 SSIM 0.808 LPIPS(alex/vgg) 0.127/0.248 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 88: PSNR 27.74 SSIM 0.797 LPIPS(alex/vgg) 0.151/0.269 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 89: PSNR 25.72 SSIM 0.742 LPIPS(alex/vgg) 0.230/0.299 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 90: PSNR 28.94 SSIM 0.856 LPIPS(alex/vgg) 0.123/0.242 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 91: PSNR 31.46 SSIM 0.866 LPIPS(alex/vgg) 0.094/0.199 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 92: PSNR 29.61 SSIM 0.801 LPIPS(alex/vgg) 0.104/0.227 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 93: PSNR 27.10 SSIM 0.786 LPIPS(alex/vgg) 0.135/0.215 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 94: PSNR 30.37 SSIM 0.870 LPIPS(alex/vgg) 0.145/0.196 iter 999 | 6s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 95: PSNR 31.69 SSIM 0.883 LPIPS(alex/vgg) 0.084/0.183 iter 999 | 23s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 96: PSNR 32.45 SSIM 0.879 LPIPS(alex/vgg) 0.084/0.190 iter 999 | 23s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 97: PSNR 29.16 SSIM 0.757 LPIPS(alex/vgg) 0.192/0.275 iter 999 | 23s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 98: PSNR 29.78 SSIM 0.848 LPIPS(alex/vgg) 0.111/0.238 iter 999 | 23s
+dps_inpaint_celeba178_from-celeba_sigma0.01_zeta0.5 img 99: PSNR 27.04 SSIM 0.816 LPIPS(alex/vgg) 0.100/0.191 iter 999 | 23s

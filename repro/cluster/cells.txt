@@ -129,3 +129,40 @@ latent dps --task inpaint
 latent dps --task gauss
 latent dsg --task inpaint
 latent dsg --task gauss
+# diagnostics (20 images): DPS with the DPS repo's default step sizes
+dps --task inpaint --target celeba --zeta 0.5
+dps --task inpaint --target bedroom --zeta 0.5
+dps --task inpaint --target church --zeta 0.5
+dps --task inpaint --target celeba178 --prior celeba --zeta 0.5
+dps --task sr4 --target celeba --zeta 0.3
+dps --task sr4 --target bedroom --zeta 0.3
+dps --task sr4 --target church --zeta 0.3
+dps --task gauss --target celeba --zeta 0.3
+dps --task gauss --target bedroom --zeta 0.3
+dps --task gauss --target church --zeta 0.3
+# diagnostics (20 images): the DPS repo's nonlinear operator (new kernel on every call)
+ino --task nonlinear_dps --target celeba
+ino --task nonlinear_dps --target bedroom
+ino --task nonlinear_dps --target church
+ino --task nonlinear_dps --target celeba --prior bedroom
+ino --task nonlinear_dps --target bedroom --prior celeba
+dps --task nonlinear_dps --target celeba --zeta 0.3
+dps --task nonlinear_dps --target bedroom --zeta 0.3
+dps --task nonlinear_dps --target church --zeta 0.3
+dmplug --task nonlinear_dps --target celeba
+# diagnostics (20 images): ours on original CelebA faces
+ino --task inpaint --target celeba178 --prior celeba --noclip --tag noclip
+ino --task inpaint --target celeba178 --prior celeba --lr 0.05 --tag lr0.05
+ino --task inpaint --target celeba178 --prior celeba --iters 2000 --tag it2000
+ino --task inpaint --target celeba178 --prior celeba --spacing trailing --tag trailing
+# diagnostics (20 images): DiT latent prior
+latent ino --model dit --task inpaint --lr 0.2 --tag lr0.2
+latent ino --model dit --task inpaint --iters 1000 --tag it1000
+# 100-image confirmation of the diagnostics (cells 131-149, 154 rerun with --n 100, plus these)
+ino --task nonlinear_dps --target celeba --prior church
+ino --task nonlinear_dps --target bedroom --prior church
+ino --task nonlinear_dps --target church --prior celeba
+ino --task nonlinear_dps --target church --prior bedroom
+dmplug --task nonlinear_dps --target bedroom
+dmplug --task nonlinear_dps --target church
+latent ino --model dit --task gauss --lr 0.2 --tag lr0.2
